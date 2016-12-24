@@ -18,7 +18,6 @@ public class ViewResolver
     @RequestMapping(value = "/home")
     public String teste()
     { 
-
         return "index";
     }
 }
