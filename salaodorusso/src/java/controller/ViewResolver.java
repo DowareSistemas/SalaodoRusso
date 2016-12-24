@@ -6,7 +6,6 @@
 package controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -18,7 +17,7 @@ public class ViewResolver
 {
     @RequestMapping(value = "/home")
     public String teste()
-    {
+    { 
         return "index";
     }
 }
