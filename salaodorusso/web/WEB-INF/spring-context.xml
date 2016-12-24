@@ -15,7 +15,7 @@
     <context:component-scan base-package="repository" />
     <mvc:annotation-driven />
     <mvc:default-servlet-handler/>
-  
+    <mvc:resources location="/resources/"       mapping="/resources/**" cache-period="5000" />
      
     <!--
     <mvc:interceptors>
