@@ -14,6 +14,9 @@ import br.com.persistor.enums.JOIN_TYPE;
 import br.com.persistor.enums.LOAD;
 import java.util.Date;
 import java.io.InputStream;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -23,7 +26,13 @@ public class Formas_pagamento extends Entity
 {
 
     private int id;
+    
+    @NotNull(message = "A descrição é obrigatória")
+    @NotEmpty(message = "A descrição é obrigatória")
+    @Size(max = 50, message = "A descrição não pode conter mais de 50 caracteres")
     private String descricao;
+    
+    @NotNull(message = "Informe se a forma de pagamento está inativa")
     private boolean inativo;
 
     public void setId(int id)

@@ -39,7 +39,8 @@ public class Tipos_servicoController
             db.update(tipo);
         else
             db.save(tipo);
-
+        
+        db.commit(true);
         return (tipo.saved || tipo.updated
                 ? new OperationResult(StatusRetorno.OPERACAO_OK, "Salvo.", "").toJson()
                 : new OperationResult(StatusRetorno.FALHA_INTERNA, "Problema ao salvar", "").toJson());
@@ -64,11 +65,18 @@ public class Tipos_servicoController
         if(!db.exists(Tipos_servicos.class, "id", id))
             return new OperationResult(StatusRetorno.NAO_ENCONTRADO, "Registro não encontrado.", "").toJson();
         
-        Tipos_servicos t = new Tipos_servicos();
-        db.delete(t);
+        Tipos_servicos ts = db.find(Tipos_servicos.class, id);
+        
+        if(ts.getId() == 0)
+        {
+            db.close();
+            return new OperationResult(StatusRetorno.NAO_ENCONTRADO, "Registro não encontrado.", "").toJson();
+        }
+        
+        db.delete(ts);
         db.commit(true);
         
-        return (t.deleted
+        return (ts.deleted
                 ? new OperationResult(StatusRetorno.OPERACAO_OK, "Registro removido.", "").toJson()
                 : new OperationResult(StatusRetorno.FALHA_INTERNA, "Ocorreu um problema ao remover o tipo de serviço.", "").toJson());
     }
