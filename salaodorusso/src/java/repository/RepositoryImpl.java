@@ -159,13 +159,8 @@ public abstract class RepositoryImpl<T> implements IRepository<T>
         try
         {
             checkInitialization();
-
-            Object entity = entityClass.newInstance();
-            session.createCriteria(entity, RESULT_TYPE.MULTIPLE)
-                    .add(Restrictions.eq(FILTER_TYPE.WHERE, field, value))
-                    .execute();
-
-            return (!session.getList(entity).isEmpty());
+            int count = session.count(entityClass, field + " = " + value);
+            return (count > 0);
         }
         catch (Exception ex)
         {

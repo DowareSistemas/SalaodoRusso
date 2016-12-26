@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ViewResolver
 {
-    @RequestMapping(value = "/home")
-    public String teste()
+    @RequestMapping(value = "/index")
+    public String index()
     { 
         return "index";
     }

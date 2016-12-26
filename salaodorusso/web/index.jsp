@@ -12,6 +12,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <label>Você será redirecionado em alguns instantes. Por favor, aguarde...</label>
+        <script src="/WEB-INF/views/resources/js-libs/jquery.js"></script>
+        <script>
+            window.location.href += "index";
+        </script>
     </body>
 </html>

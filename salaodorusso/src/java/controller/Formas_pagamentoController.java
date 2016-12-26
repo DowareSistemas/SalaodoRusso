@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import repository.Formas_pagamentoRepository;
@@ -27,7 +28,7 @@ public class Formas_pagamentoController
 
     Formas_pagamentoRepository db = new Formas_pagamentoRepository();
 
-    @RequestMapping(value = "/fpg-save", produces = "application/json; charset=utf-8")
+    @RequestMapping(value = "/fpg-save", produces = "application/json; charset=utf-8", method = RequestMethod.POST)
     public @ResponseBody
     String save(@Valid Formas_pagamento fpg, BindingResult result)
     {
