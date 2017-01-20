@@ -23,7 +23,7 @@ public class SessionProvider
     private static final String USER = "root";
     private static final String PASSWORD = "81547686";
     private static final String DATABASE = "salaodorusso";
-    private static final DB_TYPE DBTYPE = DB_TYPE.MySQL;
+    private static final DB_TYPE DBTYPE = DB_TYPE.PostgreSQL;
 
     private static SessionFactory factory = null;
 
