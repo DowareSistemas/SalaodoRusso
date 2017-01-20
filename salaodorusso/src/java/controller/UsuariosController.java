@@ -25,10 +25,9 @@ import repository.UsuariosRepository;
 @Scope(value = "request")
 public class UsuariosController
 {
-
     private UsuariosRepository db = new UsuariosRepository();
 
-    @RequestMapping(value = "usr-find", produces = "application/json; charset=utf-8")
+    @RequestMapping(value = "/usr-find", produces = "application/json; charset=utf-8")
     public @ResponseBody
     String find(@RequestParam(value = "id") int id)
     {
@@ -40,7 +39,7 @@ public class UsuariosController
                 : new OperationResult(StatusRetorno.OPERACAO_OK, "", usr).toJson());
     }
 
-    @RequestMapping(value = "usr-login", produces = "application/json; charset=utf-8")
+    @RequestMapping(value = "/usr-login", produces = "application/json; charset=utf-8")
     public @ResponseBody
     String login(@RequestParam(value = "nome") String nome, @RequestParam(value = "senha") String senha, HttpSession httpSession)
     {
@@ -57,7 +56,7 @@ public class UsuariosController
         return new OperationResult(StatusRetorno.NAO_ENCONTRADO, "Usuário ou senha incorretos.", "").toJson();
     }
 
-    @RequestMapping(value = "usr-search", produces = "application/json; charset=utf-8")
+    @RequestMapping(value = "/usr-search", produces = "application/json; charset=utf-8")
     public @ResponseBody
     String search(@RequestParam(value = "query") String searchTerm, @RequestParam(value = "tipo_usuario") int tipo)
     {
@@ -70,7 +69,7 @@ public class UsuariosController
                 : new OperationResult(StatusRetorno.OPERACAO_OK, list.size() + " registros encotrados.", list).toJson());
     }
 
-    @RequestMapping(value = "usr-save", produces = "application/json; charset=utf-8")
+    @RequestMapping(value = "/usr-save", produces = "application/json; charset=utf-8")
     public @ResponseBody
     String save(@Valid Usuarios usuario, BindingResult result, HttpSession httpSession)
     {
