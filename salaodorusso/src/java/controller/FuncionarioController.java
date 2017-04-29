@@ -121,6 +121,7 @@ public class FuncionarioController
         FuncionarioServicosDao dao = new FuncionarioServicosDao(false);
         FuncionarioServicos fs = dao.find(funcionarioservico_id);
         dao.remove(fs);
+        dao.commit(true);
 
         return (fs.deleted
                 ? OperationResult.toJson(StatusRetorno.OPERACAO_OK, "Tipo de serviço removido deste funcionário", "")

@@ -41,4 +41,9 @@ public class FuncionarioServicosDao
     {
         return db.find(FuncionarioServicos.class, id);
     }
+
+    public void commit(boolean close)
+    {
+        db.commit(close);
+    }
 }
