@@ -5,7 +5,8 @@
  */
 package controller;
 
-import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import enums.StatusRetorno;
 
 /**
  *
@@ -13,22 +14,24 @@ import com.google.gson.Gson;
  */
 public class OperationResult
 {
+
     private int status;
     private String msg;
-    private Object object;
+    private Object entity;
 
-    public OperationResult(int status, String msg, Object object)
+    private OperationResult(StatusRetorno statusRetorno, String msg, Object object)
     {
-       this.status = status;
-       this.msg = msg;
-       this.object = object;
+        this.status = statusRetorno.valor;
+        this.msg = msg;
+        this.entity = object;
     }
-    
-    public String toJson()
+
+    public static String toJson(StatusRetorno statusRetorno, String msg, Object object)
     {
-        return new Gson().toJson(this);
+        OperationResult or = new OperationResult(statusRetorno, msg, object);
+        return new GsonBuilder().setDateFormat("dd/MM/yyyy").create().toJson(or);
     }
-    
+
     public int getStatus()
     {
         return status;
@@ -51,12 +54,12 @@ public class OperationResult
 
     public Object getObject()
     {
-        return object;
+        return entity;
     }
 
     public void setObject(Object object)
     {
-        this.object = object;
+        this.entity = object;
     }
-    
+
 }

@@ -5,42 +5,36 @@
  */
 package repository;
 
-import br.com.persistor.enums.FILTER_TYPE;
 import br.com.persistor.enums.RESULT_TYPE;
-import br.com.persistor.generalClasses.Restrictions;
+import br.com.persistor.interfaces.ICriteria;
 import br.com.persistor.interfaces.Session;
-import com.sun.xml.internal.org.jvnet.fastinfoset.RestrictedAlphabet;
-import controller.SessionProvider;
+import br.com.persistor.sessionManager.Query;
+import commons.SessionProvider;
 import interfaces.IRepository;
 
 /**
  *
  * @author Marcos Vinícius
+ * @param <T>
  */
 public abstract class RepositoryImpl<T> implements IRepository<T>
 {
 
-    private boolean autoCommit = false;
-
-    public void enableAutoCommitAndClose()
-    {
-        this.autoCommit = true;
-    }
-
-    private Session session = null;
+    private Session mainSession = null;
+    private boolean autoCommitOrClose;
 
     private void checkInitialization()
     {
         try
         {
-            if (session == null)
-                session = SessionProvider.openSession();
-            if (session.getActiveConnection().isClosed())
-                session = SessionProvider.openSession();
+            if (mainSession == null)
+                mainSession = SessionProvider.openSession();
+            if (mainSession.getActiveConnection().isClosed())
+                mainSession = SessionProvider.openSession();
         }
         catch (Exception ex)
         {
-            ex.printStackTrace();
+
         }
     }
 
@@ -48,41 +42,29 @@ public abstract class RepositoryImpl<T> implements IRepository<T>
     public void save(T entity)
     {
         checkInitialization();
+        mainSession.save(entity);
 
-        session.save(entity);
-        if (autoCommit)
+        if (autoCommitOrClose)
             commit(true);
     }
 
     @Override
-    public void update(T entity, String... whereCondition)
+    public void update(T entity)
     {
         checkInitialization();
+        mainSession.update(entity);
 
-        if (whereCondition != null)
-        {
-            if (whereCondition.length > 0)
-                session.update(entity, whereCondition[0]);
-        }
-        else
-            session.update(entity);
-        if (autoCommit)
+        if (autoCommitOrClose)
             commit(true);
     }
 
     @Override
-    public void delete(T entity, String... whereCondition)
+    public void remove(T entity)
     {
         checkInitialization();
+        mainSession.delete(entity);
 
-        if (whereCondition != null)
-        {
-            if (whereCondition.length > 0)
-                session.delete(entity, whereCondition[0]);
-        }
-        else
-            session.update(entity);
-        if (autoCommit)
+        if (autoCommitOrClose)
             commit(true);
     }
 
@@ -90,82 +72,72 @@ public abstract class RepositoryImpl<T> implements IRepository<T>
     public T find(Class entityClass, int id)
     {
         checkInitialization();
-
-        T entity = session.onID(entityClass, id);
-        if (autoCommit)
+        T entity = mainSession.onID(entityClass, id);
+        if (autoCommitOrClose)
             close();
-
         return entity;
     }
 
     @Override
-    public T first(Class entityClass, String... whereCondition)
+    public boolean exists(Class entityClass, int id)
     {
         checkInitialization();
-
-        T entity = null;
-
-        if (whereCondition != null)
-        {
-            if (whereCondition.length > 0)
-                entity = session.first(entityClass, whereCondition[0]);
-        }
-        else
-            entity = session.first(entityClass, "");
-
-        if (autoCommit)
-            close();
-
-        return entity;
-    }
-
-    @Override
-    public T last(Class entityClass, String... whereCondition)
-    {
-        checkInitialization();
-
-        T entity = null;
-        if (whereCondition != null)
-        {
-            if (whereCondition.length > 0)
-                entity = session.last(entityClass, whereCondition[0]);
-        }
-        else
-            entity = session.last(entityClass, "");
-
-        if (autoCommit)
-            close();
-
-        return entity;
-    }
-
-    @Override
-    public void close()
-    {
-        session.close();
+        int count = mainSession.count(entityClass, "id = " + id);
+        return (count > 1);
     }
 
     @Override
     public void commit(boolean close)
     {
-        session.commit();
+        mainSession.commit();
         if (close)
             close();
     }
 
     @Override
-    public boolean exists(Class entityClass, String field, Object value)
+    public void close()
     {
-        try
-        {
-            checkInitialization();
-            int count = session.count(entityClass, field + " = " + value);
-            return (count > 0);
-        }
-        catch (Exception ex)
-        {
+        mainSession.close();
+        mainSession = null;
+    }
 
-        }
-        return false;
+    @Override
+    public Query createQuery(T entity, String queryString)
+    {
+        checkInitialization();
+        Query query = mainSession.createQuery(entity, queryString);
+        query.setCloseSessionAfterExecute(autoCommitOrClose);
+
+        return query;
+    }
+
+    @Override
+    public ICriteria createCriteria(T entity, RESULT_TYPE result_type)
+    {
+        checkInitialization();
+        ICriteria criteria = mainSession.createCriteria(entity, result_type);
+        if (autoCommitOrClose)
+            criteria.enableCloseSessionAfterExecute();
+
+        return criteria;
+    }
+
+    @Override
+    public void setSession(Session session)
+    {
+        this.mainSession = session;
+    }
+
+    @Override
+    public Session getSession()
+    {
+        checkInitialization();
+        return mainSession;
+    }
+
+    @Override
+    public void setAutoCommitOrClose(boolean value)
+    {
+        this.autoCommitOrClose = value;
     }
 }

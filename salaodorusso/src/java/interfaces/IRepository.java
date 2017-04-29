@@ -5,28 +5,40 @@
  */
 package interfaces;
 
+import br.com.persistor.enums.RESULT_TYPE;
+import br.com.persistor.interfaces.ICriteria;
+import br.com.persistor.interfaces.Session;
+import br.com.persistor.sessionManager.Query;
+
 /**
  *
  * @author Marcos Vinícius
+ * @param <T>
  */
 public interface IRepository<T>
 {
 
+    void setSession(Session session);
+
+    Session getSession();
+
+    void setAutoCommitOrClose(boolean value);
+
     void save(T entity);
 
-    void update(T entity, String... whereCondition);
+    void update(T entity);
 
-    void delete(T entity, String... whereCondition);
+    void remove(T entity);
 
     T find(Class entityClass, int id);
 
-    T first(Class entityClass, String... whereCondition);
+    boolean exists(Class entityClass, int id);
 
-    T last(Class entityClass, String... whereCondition);
+    void commit(boolean close);
 
     void close();
 
-    void commit(boolean close);
-    
-    boolean exists(Class entityClass, String field, Object value);
+    Query createQuery(T entity, String query);
+
+    ICriteria createCriteria(T entity, RESULT_TYPE result_type);
 }
