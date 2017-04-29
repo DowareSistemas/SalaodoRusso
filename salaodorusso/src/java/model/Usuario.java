@@ -6,16 +6,20 @@
 package model;
 
 import br.com.persistor.abstractClasses.Entity;
+import br.com.persistor.annotations.NamedQuery;
 import br.com.persistor.annotations.OneToOne;
 import br.com.persistor.annotations.PrimaryKey;
 import br.com.persistor.enums.INCREMENT;
 import br.com.persistor.enums.JOIN_TYPE;
 import br.com.persistor.enums.LOAD;
+import br.com.persistor.sessionManager.FieldHandled;
 
 /**
  *
  * @author Marcos Vinícius
  */
+@NamedQuery(queryName = "loginUsuario",
+        queryValue = "select * from usuario where email = ? and senha = ?")
 public class Usuario extends Entity
 {
 
@@ -32,6 +36,8 @@ public class Usuario extends Entity
     @OneToOne(source = "endereco_id", target = "id", join_type = JOIN_TYPE.LEFT, load = LOAD.AUTO)
     public Endereco getEndereco()
     {
+        if (endereco == null)
+            endereco = (Endereco) FieldHandled.readObject(this, "endereco");
         return endereco;
     }
 

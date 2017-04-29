@@ -29,7 +29,7 @@ public class DatabaseUtilTest
         catch (Exception ex)
         {
             assertTrue(false);
-            System.err.println(ex.getMessage());
+            ex.printStackTrace();
         }
     }
     
