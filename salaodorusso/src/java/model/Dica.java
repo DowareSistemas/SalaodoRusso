@@ -8,6 +8,7 @@ package model;
 import br.com.persistor.abstractClasses.Entity;
 import br.com.persistor.annotations.PrimaryKey;
 import br.com.persistor.enums.INCREMENT;
+import commons.Utility;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -20,12 +21,12 @@ public class Dica extends Entity
 {
 
     private int id;
-    
+
     @NotNull(message = "O título da dica é obrigatório")
     @NotEmpty(message = "O título da dica é obrigatório")
     @NotBlank(message = "O título da dica é obrigatório")
     private String titulo;
-    
+
     @NotNull(message = "A descrição da dica é obrigatória")
     @NotEmpty(message = "A descrição da dica é obrigatória")
     @NotBlank(message = "A descrição da dica é obrigatória")

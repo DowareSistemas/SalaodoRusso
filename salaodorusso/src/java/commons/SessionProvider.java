@@ -48,7 +48,7 @@ public class SessionProvider
         config.setHost("localhost");
         config.setPort(3306);
         config.setPersistenceLogger(PersistenceLoggerImpl.class);
-        config.setSlPersistenceContext(PersistenceContext.class);
+       // config.setSlPersistenceContext(PersistenceContext.class);
         config.setMaxIdleTime(10);
         config.setMaxStatements(10);
         config.setMaxIdleTimeExcessConnections(10);

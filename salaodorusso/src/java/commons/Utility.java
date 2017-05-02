@@ -5,7 +5,12 @@
  */
 package commons;
 
+import controller.Database;
+import dao.ConfiguracoesDao;
+import java.io.File;
+import model.Configuracoes;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -13,8 +18,26 @@ import org.springframework.validation.BindingResult;
  */
 public class Utility
 {
+    public static void removeImageInDisk(String fName)
+    {
+        if(fName == null)
+            return;
+        if(fName.isEmpty())
+            return;
+        try
+        {
+            Configuracoes config = ConfiguracoesDao.getInstance().find("FOTO_PATH");
+            File file = new File(config.getValor() + fName);
+            if(file.exists())
+                file.delete();
+        }
+        catch(Exception ex)
+        {
+            
+        }
+    }
 
-  /*  public static String saveImageInDisk(MultipartFile mFile)
+    public static String saveImageInDisk(MultipartFile mFile)
     {
         try
         {
@@ -32,7 +55,6 @@ public class Utility
             return null;
         }
     }
-*/
 
     public static String getBindingResultMessage(BindingResult bindingResult)
     {

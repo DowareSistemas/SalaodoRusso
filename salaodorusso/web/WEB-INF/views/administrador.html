@@ -339,21 +339,26 @@
             <!-- CADASTRO DICA -->
             <h2>Cadastro Dica</h2>
             <br><!-- ESPAÇO -->
-            <form>
-                <label>Imagem</label>
-                <input type="file">
-                <br><!-- ESPAÇO -->
+            <label>ID</label>
+            <input id="txIdDica" type="number" disabled value="0">
+            <br>
 
-                <label>Título</label>
-                <input type="text">
-                <br><!-- ESPAÇO -->
+            <label>Imagem</label>
 
-                <label>Descrição</label>
-                <textarea rows="3"></textarea>
-                <br><!-- ESPAÇO -->
+            <form id="formUploadImgDica" enctype="multipart/form-data" method="post">
+                <input id="inputFotoDica" type="file" accept="image/jpeg" name="file">
+            </form>
+            <br><!-- ESPAÇO -->
 
-                <button type="submit">Salvar</button>
-            </form><!-- CADASTRO DICA -->
+            <label>Título</label>
+            <input id="txTituloDica" type="text">
+            <br><!-- ESPAÇO -->
+
+            <label>Descrição</label>
+            <textarea id="txDescricaoDica" rows="3"></textarea>
+            <br><!-- ESPAÇO -->
+
+            <button type="button" id="btnSalvarDica">Salvar</button>
 
             <fieldset>
                 <!-- GERENCIAMENTO DE DICA -->
@@ -366,12 +371,8 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Título</td>
-                            <td><button type="button">Editar</button></td>
-                            <td><button type="button">Excluir</button></td>
-                        </tr>
+                    <tbody id="tabela-dicas-administrador">
+
                     </tbody>
                 </table>
             </fieldset><!-- GERENCIAMENTO DE DICA -->
@@ -382,25 +383,29 @@
         <fieldset>
             <!-- CADASTRO PRODUTO -->
             <h2>Cadastro Produto</h2>
+            
+            <label>ID</label>
+            <input id="txIdProduto" type="number" value="0" disabled>
             <br><!-- ESPAÇO -->
-            <form>
-                <label>Imagem</label>
-                <input type="file">
-                <br><!-- ESPAÇO -->
+            <label>Imagem</label>
 
-                <label>Nome</label>
-                <input type="text">
-                <br><!-- ESPAÇO -->
+            <form id="formUploadImgProduto" enctype="multipart/form-data" method="post">
+                <input id="inputFotoProduto" accept="image/jpeg" type="file" name="file">
+            </form>
+            <br><!-- ESPAÇO -->
 
-                <label>Descrição</label>
-                <textarea rows="3"></textarea>
-                <br><!-- ESPAÇO -->
+            <label>Nome</label>
+            <input id="txNomeProduto" type="text">
+            <br><!-- ESPAÇO -->
 
-                <label>Valor</label>
-                <input type="number">
+            <label>Descrição</label>
+            <textarea id="txDescricaoProduto" rows="3"></textarea>
+            <br><!-- ESPAÇO -->
 
-                <button type="submit">Salvar</button>
-            </form><!-- CADASTRO PRODUTO -->
+            <label>Valor</label>
+            <input id="txValorProduto" type="number">
+
+            <button id="btnSalvarProduto" type="button">Salvar</button>
 
             <fieldset>
                 <!-- GERENCIAMENTO DE PRODUTO -->
@@ -414,16 +419,18 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Nome do produto</td>
-                            <td>R$ <span>00,00</span></td>
-                            <td><button type="button">Editar</button></td>
-                            <td><button type="button">Excluir</button></td>
-                        </tr>
+                    <tbody id="tabela-produtos-admin">
+
                     </tbody>
                 </table>
             </fieldset><!-- GERENCIAMENTO DE PRODUTO -->
         </fieldset>
+
+        <script src="resources/js/commons.js"></script>
+        <script src="resources/frameworks/js/jquery.js"></script>
+        <script src="resources/frameworks/js/jquery-form.js"></script>
+        <script src="resources/js/dica.js"></script>
+        <script src="resources/js/produto.js"></script>
+        <script src="resources/js/admin.js"></script>
     </body>
 </html>

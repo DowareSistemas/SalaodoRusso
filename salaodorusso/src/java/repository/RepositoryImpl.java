@@ -83,7 +83,7 @@ public abstract class RepositoryImpl<T> implements IRepository<T>
     {
         checkInitialization();
         int count = mainSession.count(entityClass, "id = " + id);
-        return (count > 1);
+        return (count > 0);
     }
 
     @Override
