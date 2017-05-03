@@ -7,56 +7,59 @@
         <title>Usuário</title>
     </head>
     <body>
+        <label>Nome</label>
+        <input id="txNomeUsuario" type="text">
+        <br><!-- ESPAÇO -->
 
-        <form>
-            <label>Nome</label>
-            <input type="text">
-            <br><!-- ESPAÇO -->
+        <label>Email</label>
+        <input id="txEmailUsuario" type="email">
+        <br><!-- ESPAÇO -->
 
-            <label>Email</label>
-            <input type="email">
-            <br><!-- ESPAÇO -->
+        <label>Senha</label>
+        <input id="txSenhaUsuario" type="password">
+        <br><!-- ESPAÇO -->
 
-            <label>Senha</label>
-            <input type="password">
-            <br><!-- ESPAÇO -->
+        <label>Telefone</label>
+        <input id="txTelefoneUsuario" type="tel">
+        <br><!-- ESPAÇO -->
 
-            <label>Telefone</label>
-            <input type="tel">
-            <br><!-- ESPAÇO -->
+        <label>Celular</label>
+        <input id="txCelularUsuario" type="tel">
+        <hr>
 
-            <label>Celular</label>
-            <input type="tel">
-            <hr>
+        <h3>Endereço</h3>
+        <br><!-- ESPAÇO -->
 
-            <h3>Endereço</h3>
-            <br><!-- ESPAÇO -->
+        <label>Rua</label>
+        <input id="txLogradouroUsuario" type="text">
+        <br><!-- ESPAÇO -->
 
-            <label>Rua</label>
-            <input type="text">
-            <br><!-- ESPAÇO -->
+        <label>Número</label>
+        <input id="txNumeroUsuario" type="number">
+        <br><!-- ESPAÇO -->
 
-            <label>Número</label>
-            <input type="number">
-            <br><!-- ESPAÇO -->
+        <label>Complemento</label>
+        <input id="txComplementoUsuario" type="text">
+        <br><!-- ESPAÇO -->
 
-            <label>Complemento</label>
-            <input type="text">
-            <br><!-- ESPAÇO -->
+        <label>Bairro</label>
+        <input id="txBairroUsuario" type="text">
+        <br><!-- ESPAÇO -->
 
-            <label>Bairro</label>
-            <input type="text">
-            <br><!-- ESPAÇO -->
+        <label>Cidade</label>
+        <input id="txMunicipioUsuario" type="text">
+        <br><!-- ESPAÇO -->
 
-            <label>Cidade</label>
-            <input type="text">
-            <br><!-- ESPAÇO -->
+        <label>Cep</label>
+        <input id="txCepUsuario" type="number">
+        <hr>
 
-            <label>Cep</label>
-            <input type="number">
-            <hr>
-
-            <button type="submit">Salvar</button>
-        </form>
+        <button onclick="salvarInfoUsuario(true)" type="button">Salvar</button>
+        <button onclick="efetuarLogout()" type="button">Sair</button>
+        
+        <script src="resources/js/commons.js"></script>
+        <script src="resources/frameworks/js/jquery.js"></script>
+        <script src="resources/frameworks/js/jquery_cookie.js"></script>
+        <script src="resources/js/usuario.js"></script>
     </body>
 </html>

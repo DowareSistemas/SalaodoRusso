@@ -8,39 +8,40 @@
     </head>
     <body>
         <h2>Entrar</h2>
-        <form>
-            <label>Email</label>
-            <input type="email">
-            <br><!-- ESPAÇO -->
+        <label>Email</label>
+        <input id="txEmailLogin" type="email">
+        <br><!-- ESPAÇO -->
 
-            <label>Senha</label>
-            <input type="password">
-            <br><!-- ESPAÇO -->
+        <label>Senha</label>
+        <input id="txSenhaLogin" type="password">
+        <br><!-- ESPAÇO -->
 
-            <button type="submit">Entrar</button>
-        </form>
+        <button onclick="efatuarLogin()" type="button">Entrar</button>
         <hr>
 
         <h2>Cadastrar</h2>
-        <form>
-            <label>Nome</label>
-            <input type="text">
-            <br><!-- ESPAÇO -->
-            
-            <label>Email</label>
-            <input type="email">
-            <br><!-- ESPAÇO -->
+        <label>Nome</label>
+        <input id="txNomeUsuarioCadastro" type="text">
+        <br><!-- ESPAÇO -->
 
-            <label>Senha</label>
-            <input type="password">
-            <br><!-- ESPAÇO -->
-            
-            <label>Confirmar senha</label>
-            <input type="password">
-            <br><!-- ESPAÇO -->
+        <label>Email</label>
+        <input id="txEmailUsuarioCadastro" type="email">
+        <br><!-- ESPAÇO -->
 
-            <button type="submit">Cadastrar</button>
-        </form>
+        <label>Senha</label>
+        <input id="txSenhaUsuarioCadastro" type="password">
+        <br><!-- ESPAÇO -->
+
+        <label>Confirmar senha</label>
+        <input id="txConfirmarSenhaUsuarioCadastro" type="password">
+        <br><!-- ESPAÇO -->
+
+        <button type="button" onclick="criarConta()">Cadastrar</button>
         <hr>
+
+        <script src="resources/js/commons.js"></script>
+        <script src="resources/frameworks/js/jquery.js"></script>
+        <script src="resources/frameworks/js/jquery_cookie.js"></script>
+        <script src="resources/js/cadastro.js"></script>
     </body>
 </html>

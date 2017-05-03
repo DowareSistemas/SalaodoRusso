@@ -15,7 +15,7 @@
         <label>Você será redirecionado em alguns instantes. Por favor, aguarde...</label>
         <script src="/WEB-INF/views/resources/js-libs/jquery.js"></script>
         <script>
-            window.location.href = "/salaodorusso/home";
+            window.location.href = "/salaodorusso/index";
         </script>
     </body>
 </html>

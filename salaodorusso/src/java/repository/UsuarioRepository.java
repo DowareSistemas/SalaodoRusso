@@ -31,6 +31,7 @@ public class UsuarioRepository extends RepositoryImpl<Usuario> implements IUsuar
     {
         Usuario usuario = new Usuario();
         createQuery(usuario, "@loginUsuario")
+                .setResult_type(RESULT_TYPE.UNIQUE)
                 .setParameter(1, email)
                 .setParameter(2, senha)
                 .execute();
@@ -38,5 +39,4 @@ public class UsuarioRepository extends RepositoryImpl<Usuario> implements IUsuar
                 ? null
                 : usuario);
     }
-    
 }

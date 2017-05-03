@@ -24,16 +24,28 @@ public class ViewResolver
         return ("/componentes/" + name);
     }
     
-    @RequestMapping(value = "/home")
+    @RequestMapping(value = "/index")
     public String home()
     {
-        return "home";
+        return "index";
     }
     
     @RequestMapping(value = "/dicas")
     public String dicas()
     {
         return "dicas";
+    }
+    
+    @RequestMapping(value = "/cadastro")
+    public String cadastro()
+    {
+        return "cadastro";
+    }
+    
+    @RequestMapping(value = "/usuario")
+    public String usuario()
+    {
+        return "usuario";
     }
 
     @RequestMapping(value = "/produtos")

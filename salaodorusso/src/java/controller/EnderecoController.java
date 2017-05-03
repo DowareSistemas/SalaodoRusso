@@ -37,7 +37,7 @@ public class EnderecoController
         dao.save(endereco);
         
         return (endereco.saved || endereco.updated
-                ? OperationResult.toJson(StatusRetorno.OPERACAO_OK, "Endereço salvo com sucesso", "")
+                ? OperationResult.toJson(StatusRetorno.OPERACAO_OK, "Endereço salvo com sucesso", endereco.getId())
                 : OperationResult.toJson(StatusRetorno.FALHA_INTERNA, "Tivemos uma falha interna ao salvar seu endereço. Iremos resolver este problema o mais rápido possível. Nos desculpe por este transtorno :(", ""));
     }
     

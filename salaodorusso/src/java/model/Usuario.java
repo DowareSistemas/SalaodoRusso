@@ -13,6 +13,10 @@ import br.com.persistor.enums.INCREMENT;
 import br.com.persistor.enums.JOIN_TYPE;
 import br.com.persistor.enums.LOAD;
 import br.com.persistor.sessionManager.FieldHandled;
+import java.io.Serializable;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -20,12 +24,24 @@ import br.com.persistor.sessionManager.FieldHandled;
  */
 @NamedQuery(queryName = "loginUsuario",
         queryValue = "select * from usuario where email = ? and senha = ?")
-public class Usuario extends Entity
+public class Usuario extends Entity implements Serializable
 {
 
     private int id;
+
+    @NotNull(message = "O nome é obrigatório")
+    @NotEmpty(message = "O nome é obrigatório")
+    @NotBlank(message = "O nome é obrigatório")
     private String nome;
+
+    @NotNull(message = "O email é obrigatório")
+    @NotEmpty(message = "O email é obrigatório")
+    @NotBlank(message = "O email é obrigatório")
     private String email;
+
+    @NotNull(message = "A senha é obrigatória")
+    @NotEmpty(message = "A senha é obrigatória")
+    @NotBlank(message = "A senha é obrigatória")
     private String senha;
     private String telefone;
     private String celular;

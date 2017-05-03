@@ -8,6 +8,7 @@ package model;
 import br.com.persistor.abstractClasses.Entity;
 import br.com.persistor.annotations.PrimaryKey;
 import br.com.persistor.enums.INCREMENT;
+import java.io.Serializable;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotBlank;
@@ -17,7 +18,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  *
  * @author Marcos Vinícius
  */
-public class Endereco extends Entity
+public class Endereco extends Entity implements Serializable
 {
 
     private int id;
