@@ -111,12 +111,12 @@ function listarDicasPaginaListagem()
 
     $.post(url, params, function (result)
     {
-        $('#u820').html('');
+        $('#container-dicas').html('');
         var dicas = result.entity;
         $.each(dicas, function ()
         {
             var dica = this;
-            $('#u820').append(viewBase
+            $('#container-dicas').append(viewBase
                     .replace(/{id}/g, dica.id)
                     .replace('{titulo}', dica.titulo)
                     .replace('{descricao}', dica.descricao));

@@ -1,4 +1,4 @@
-/* global StatusRetorno */
+/* global StatusRetorno, parseFloat */
 
 function listarProdutosPaginaAdmin()
 {
@@ -72,8 +72,8 @@ function carregarProdutoEdicao(produto_id)
     {
         if (response.status === StatusRetorno.NAO_ENCONTRADO)
             showMsg('Dados desatualizados', response.msg);
-        
-        if(response.status === StatusRetorno.OPERACAO_OK)
+
+        if (response.status === StatusRetorno.OPERACAO_OK)
         {
             var produto = response.entity;
             $('#txIdProduto').val(produto.id);
@@ -94,5 +94,27 @@ function excluirProduto(produto_id)
 
         if (response.status === StatusRetorno.OPERACAO_OK)
             listarProdutosPaginaAdmin();
+    });
+}
+
+function listarProdutosPaginaListagem()
+{
+    var baseView = getViewBase('item-listagem-produtos');
+    var url = '/salaodorusso/produto-search';
+    $.post(url, {searchTerm: ''}, function (response)
+    {
+        var produtos = response.entity;
+        $.each(produtos, function ()
+        {
+            var produto = this;
+            $('#container-produtos').append(baseView
+                    .replace(/{id}/g, produto.id)
+                    .replace('{nome}', produto.nome)
+                    .replace('{descricao}', produto.descricao)
+                    .replace('{preco}', parseFloat(produto.valor).toFixed(2)));
+
+            $('#fotoProduto' + produto.id).attr('src',
+                    '/salaodorusso/produto-getimage?image_name=' + produto.foto);
+        });
     });
 }
