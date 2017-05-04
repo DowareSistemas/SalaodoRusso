@@ -13,7 +13,7 @@ function listarProdutosPaginaAdmin()
             var produto = this;
             $('#tabela-produtos-admin').append(viewBase
                     .replace(/{id}/g, produto.id)
-                    .replace('{descricao}', produto.descricao)
+                    .replace('{nome}', produto.nome)
                     .replace('{valor}', produto.valor.toFixed(2)));
         });
     });

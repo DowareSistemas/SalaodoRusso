@@ -1,115 +1,641 @@
 <!DOCTYPE html>
-<html class="nojs html css_verticalspacer" lang="pt-BR">
+<html lang="pt-BR">
     <head>
         <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="resources/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="resources/css/global.css"/>
         <title>Administrador</title>
     </head>
+
     <body>
 
-        <fieldset>
-            <!-- CADASTRO DICA -->
-            <h2>Cadastro Dica</h2>
-            <br><!-- ESPAÇO -->
-            <label>ID</label>
-            <input id="txIdDica" type="number" disabled value="0">
-            <br>
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <!-- HEADER DA BARRA DE NAVEGAÇÃO -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/salaodorusso/index">SALÃO DO RUSSO</a>
+                    </div><!-- HEADER DA BARRA DE NAVEGAÇÃO -->
 
-            <label>Imagem</label>
+                    <!-- COLLAPSE BARRA DE NAVEGAÇÃO -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li><a href="/salaodorusso/index">Início</a></li>
+                            <li><a href="/salaodorusso/dicas">Dicas</a></li>
+                            <li><a href="/salaodorusso/produtos">Produtos</a></li>
+                            <!--                        <li><a href="/salaodorusso/usuario">Usuário</a></li>-->
+                        </ul>
+                        <!--                    <ul class="nav navbar-nav navbar-right">
+                                                <li><a href="">Sair</a></li>
+                                                <li class="dropdown active">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ENTRAR / CRIAR CONTA <span class="caret"></span></a>
+                                                    <ul class="dropdown-menu">
+                                                        <form>
+                                                            <li class="col-xs-12 form-group">
+                                                                <label class="visible-sm visible-md visible-lg">Email</label>
+                                                                <input type="email" class="form-control" placeholder="Email" required>
+                                                            </li>
+                                                            <li class="col-xs-12 form-group">
+                                                                <label class="visible-sm visible-md visible-lg">Senha</label>
+                                                                <input type="password" class="form-control" placeholder="Senha" required>
+                                                            </li>
+                                                            <li class="col-xs-12 form-group">
+                                                                <button type="submit" class="btn btn-success center-block">Entrar</button>
+                                                            </li>
+                                                        </form>
+                                                    </ul>
+                                                </li>
+                                            </ul>-->
+                    </div><!-- COLLAPSE BARRA DE NAVEGAÇÃO -->
+                </div>
+            </nav>
+        </header>
 
-            <!-- ***** ATENÇÃO: FORMULÁRIO COM INPUT FILE DENTRO ***** -->
-            <form id="formUploadImgDica" enctype="multipart/form-data" method="post">
-                <input id="inputFotoDica" type="file" accept="image/jpeg" name="file">
-            </form>
-            <br><!-- ESPAÇO -->
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3">
 
-            <label>Título</label>
-            <input id="txTituloDica" type="text">
-            <br><!-- ESPAÇO -->
+                        <!-- NAVEGAÇÃO DOS GERENCIAMENTOS -->
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="active"><a data-toggle="tab" href="#dica">DICA</a></li>
+                            <li><a data-toggle="tab" href="#produto">PRODUTO</a></li>
+                            <!--                            <li><a data-toggle="tab" href="#funcionarios">FUNCIONÁRIO</a></li>
+                                                        <li><a data-toggle="tab" href="#servicos">SERVIÇOS</a></li>
+                                                        <li><a data-toggle="tab" href="#cargos">CARGOS</a></li>
+                                                        <li><a data-toggle="tab" href="#expedientes">EXPEDIENTES</a></li>-->
+                        </ul><!-- NAVEGAÇÃO DOS GERENCIAMENTOS -->
+                    </div>
+                    <div class="col-xs-12 col-sm-9">
 
-            <label>Descrição</label>
-            <textarea id="txDescricaoDica" rows="3"></textarea>
-            <br><!-- ESPAÇO -->
+                        <!-- CONTEÚDO DOS GERENCIAMENTOS -->
+                        <div class="tab-content">
 
-            <button type="button" id="btnSalvarDica">Salvar</button>
+                            <!-- GERENCIAMENTO DAS DICAS-->
+                            <div id="dica" class="tab-pane fade in active">
+                                <h2>GERENCIAMENTO DE DICAS</h2>
 
-            <fieldset>
-                <!-- GERENCIAMENTO DE DICA -->
-                <h3>Gerenciameto de Dica</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Título</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabela-dicas-administrador">
-                        <!-- /componentes/item-tabela-dicas-administrador.html -->
-                    </tbody>
-                </table>
-            </fieldset><!-- GERENCIAMENTO DE DICA -->
-        </fieldset>
+                                <!-- CADASTRO DICA -->
+                                <button type="button" class="btn btn-success pull-right btnAdicionar" data-toggle="modal" data-target="#cadastro-dica">
+                                    <i class="glyphicon glyphicon-plus"> <span class="visible-sm visible-md visible-lg">ADICIONAR</span></i>
+                                </button>
 
-        
-        
-        
-        
-        <br><!-- ESPAÇO -->
+                                <div class="modal fade" id="cadastro-dica">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h2 class="modal-title">CADASTRO DE DICAS</h2>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <form id="formUploadImgDica" enctype="multipart/form-data" method="post">
+                                                        <label>Imagem</label>
+                                                        <input id="inputFotoDica" class="form-control" type="file" accept="image/jpeg" name="file">
+                                                    </form>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>ID</label>
+                                                    <input id="txIdDica" class="form-control" type="number" disabled value="0">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Título</label>
+                                                    <input id="txTituloDica" class="form-control" type="text">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Descrição</label>
+                                                    <textarea id="txDescricaoDica" class="form-control" rows="7"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button id="btnSalvarDica" class="btn btn-success center-block" type="button">Salvar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- CADASTRO DICA -->
 
-        <fieldset>
-            <!-- CADASTRO PRODUTO -->
-            <h2>Cadastro Produto</h2>
-            
-            <label>ID</label>
-            <input id="txIdProduto" type="number" value="0" disabled>
-            <br><!-- ESPAÇO -->
-            <label>Imagem</label>
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Título</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabela-dicas-administrador">
+                                        <!-- /componentes/item-tabela-dicas-administrador.html -->
+                                    </tbody>
+                                </table>
+                            </div><!-- GERENCIAMENTO DAS DICAS-->
 
-            <!-- ***** ATENÇÃO: FORMULÁRIO COM INPUT FILE DENTRO ***** -->
-            <form id="formUploadImgProduto" enctype="multipart/form-data" method="post">
-                <input id="inputFotoProduto" accept="image/jpeg" type="file" name="file">
-            </form>
-            
-            <br><!-- ESPAÇO -->
+                            <!-- GERENCIAMENTO DOS PRODUTOS-->
+                            <div id="produto" class="tab-pane fade">
+                                <h2>GERENCIAMENTO DE PRODUTOS</h2>
 
-            <label>Nome</label>
-            <input id="txNomeProduto" type="text">
-            <br><!-- ESPAÇO -->
+                                <!-- CADASTRO PRODUTO -->
+                                <button type="button" class="btn btn-success pull-right btnAdicionar" data-toggle="modal" data-target="#cadastro-produto">
+                                    <i class="glyphicon glyphicon-plus"> <span class="visible-sm visible-md visible-lg">ADICIONAR</span></i>
+                                </button>
 
-            <label>Descrição</label>
-            <textarea id="txDescricaoProduto" rows="3"></textarea>
-            <br><!-- ESPAÇO -->
+                                <div class="modal fade" id="cadastro-produto">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h2 class="modal-title">CADASTRO DE PRODUTOS</h2>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <form id="formUploadImgProduto" enctype="multipart/form-data" method="post">
+                                                        <label>Imagem</label>
+                                                        <input id="inputFotoProduto" class="form-control" accept="image/jpeg" type="file" name="file">
+                                                    </form>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>ID</label>
+                                                    <input id="txIdProduto" class="form-control" type="number" value="0" disabled>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Nome</label>
+                                                    <input id="txNomeProduto" class="form-control" type="text">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Descrição</label>
+                                                    <textarea id="txDescricaoProduto" class="form-control" rows="5"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Valor</label>
+                                                    <input id="txValorProduto" class="form-control" type="number">
+                                                </div>
+                                                <div class="form-group">
+                                                    <button id="btnSalvarProduto" class="btn btn-success center-block" type="button">Salvar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- CADASTRO PRODUTO -->
 
-            <label>Valor</label>
-            <input id="txValorProduto" type="number">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th class="text-center">Valor</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabela-produtos-admin">
+                                        <!-- /componentes/item-tabela-produtos-administrador.html -->
+                                    </tbody>
+                                </table>
+                            </div><!-- GERENCIAMENTO DOS PRODUTOS-->
 
-            <button id="btnSalvarProduto" type="button">Salvar</button>
+                            <!-- GERENCIAMENTO DOS FUNCIONARIOS-->
+                            <div id="funcionarios" class="tab-pane fade">
+                                <h2>Gerenciameto de Funcionário</h2>
 
-            <fieldset>
-                <!-- GERENCIAMENTO DE PRODUTO -->
-                <h3>Gerenciameto de Produto</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Valor</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabela-produtos-admin">
-                        <!-- /componentes/item-tabela-produtos-administrador.html -->
-                    </tbody>
-                </table>
-            </fieldset><!-- GERENCIAMENTO DE PRODUTO -->
-        </fieldset>
+                                <!-- CADASTRO FUNCIONÁRIO -->
+                                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#cadastro-funcionario">
+                                    <i class="glyphicon glyphicon-plus"> <span class="visible-sm visible-md visible-lg">ADICIONAR</span></i>
+                                </button>
 
+                                <div class="modal fade" id="cadastro-funcionario">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h2 class="modal-title">CADASTRO DE FUNCIONÁRIO</h2>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label>Nome Completo</label>
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Email</label>
+                                                        <input class="form-control" type="email">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Telefone</label>
+                                                        <input class="form-control" type="tel">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Celular</label>
+                                                        <input class="form-control" type="tel">
+                                                    </div>
+
+                                                    <!-- CADASTRO DE ENDEREÇO -->
+                                                    <div class="form-group">
+                                                        <button class="btn btn-warning center-block" type="button" data-toggle="collapse" data-target="#collapseEndereco">
+                                                            Adicionar Endereço
+                                                        </button>
+                                                    </div>
+                                                    <div class="collapse" id="collapseEndereco">
+                                                        <div class="well">
+                                                            <div class="form-group">
+                                                                <label>Rua</label>
+                                                                <input class="form-control" type="text">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Número</label>
+                                                                <input class="form-control" type="number">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Complemento</label>
+                                                                <input class="form-control" type="text">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Bairro</label>
+                                                                <input class="form-control" type="text">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Cidade</label>
+                                                                <input class="form-control" type="text">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Cep</label>
+                                                                <input class="form-control" type="number">
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- CADASTRO DE ENDEREÇO -->
+
+                                                    <div class="form-group">
+                                                        <h3>Trabalho</h3>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Cargo</label>
+                                                        <select class="form-control">
+                                                            <option>Selecione</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Serviços</label>
+                                                        <table class="table table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th>Serviços</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><input class="checkbox" type="checkbox"></td>
+                                                                    <td>Pé</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><input class="checkbox" type="checkbox"></td>
+                                                                    <td>Mão</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Expediente</label>
+                                                        <select class="form-control">
+                                                            <option>Selecione</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button class="btn btn-success center-block" type="submit">Salvar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- CADASTRO FUNCIONÁRIO -->
+
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Nome</th>
+                                            <th>Email</th>
+                                            <th>Telefone</th>
+                                            <th>Celular</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><button class="btn btn-xs btn-info" type="button" data-toggle="collapse" data-target="#InfCompFuncionario"><span class="glyphicon glyphicon-info-sign"></span></button></td>
+                                            <td>Nome</td>
+                                            <td>Email</td>
+                                            <td>(00) 0000-0000</td>
+                                            <td>(00) 0000-00000</td>
+                                            <td><button class="btn btn-xs btn-info center-block" type="button">Editar</button></td>
+                                            <td><button class="btn btn-xs btn-danger pull-right" type="button">Excluir</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <!-- INFORMAÇÕES COMPLEMENTARES DO FUNCIONÁRIO -->
+                                <div class="collapse" id="InfCompFuncionario">
+                                    <div class="well">
+                                        <h4>Informações do Funcionário</h4>
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Endereço</th>
+                                                    <th>Cargo</th>
+                                                    <th>Serviços</th>
+                                                    <th>Expediente</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span>Rua</span>, <span>00</span>, <span>Bairro</span>, <span>Cidade</span>, <span>00000-000</span>, <span>Complemento</span></td>
+                                                    <td>Manicure</td>
+                                                    <td>
+                                                        <span>Pé</span>, <span>Mão</span>
+                                                    </td>
+                                                    <td>Início <span>08:00</span>, Fim <span>18:00</span></td>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div><!-- INFORMAÇÕES COMPLEMENTARES DO FUNCIONÁRIO -->
+                            </div><!-- GERENCIAMENTO DOS FUNCIONARIOS-->
+
+                            <!-- GERENCIAMENTO DOS SERVIÇOS-->
+                            <div id="servicos" class="tab-pane fade">
+                                <h2>Gerenciameto de Serviços</h2>
+
+                                <!-- CADASTRO SERVIÇO -->
+                                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#cadastro-servico">
+                                    <i class="glyphicon glyphicon-plus"> <span class="visible-sm visible-md visible-lg">ADICIONAR</span></i>
+                                </button>
+
+                                <div class="modal fade" id="cadastro-servico">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h2 class="modal-title">CADASTRO DE SERVIÇO</h2>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label>Serviço prestado</label>
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button class="btn btn-success center-block" type="submit">Salvar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- CADASTRO SERVIÇO -->
+
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Serviço</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Corte</td>
+                                            <td><button class="btn btn-xs btn-info center-block" type="button">Editar</button></td>
+                                            <td><button class="btn btn-xs btn-danger pull-right" type="button">Excluir</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </fieldset><!-- GERENCIAMENTO DE SERVIÇO -->
+                                </fieldset>
+                            </div><!-- GERENCIAMENTO DOS SERVIÇOS-->
+
+                            <!-- GERENCIAMENTO DOS CARGOS-->
+                            <div id="cargos" class="tab-pane fade">
+                                <h2>Gerenciameto de Cargo</h2>
+
+                                <!-- CADASTRO CARGO -->
+                                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#cadastro-cargo">
+                                    <i class="glyphicon glyphicon-plus"> <span class="visible-sm visible-md visible-lg">ADICIONAR</span></i>
+                                </button>
+
+                                <div class="modal fade" id="cadastro-cargo">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h2 class="modal-title">CADASTRO DE CARGO</h2>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label>Nome do cargo</label>
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button class="btn btn-success center-block" type="submit">Salvar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- CADASTRO CARGO -->
+
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Cargo</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Título</td>
+                                            <td><button class="btn btn-xs btn-info center-block" type="button">Editar</button></td>
+                                            <td><button class="btn btn-xs btn-danger pull-right" type="button">Excluir</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div><!-- GERENCIAMENTO DOS CARGOS-->
+
+                            <!-- GERENCIAMENTO DOS EXPEDIENTES-->
+                            <div id="expedientes" class="tab-pane fade">
+                                <h2>Cadastro Expediente</h2>
+
+                                <!-- CADASTRO EXPEDIENTE -->
+                                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#cadastro-expediente">
+                                    <i class="glyphicon glyphicon-plus"> <span class="visible-sm visible-md visible-lg">ADICIONAR</span></i>
+                                </button>
+
+                                <div class="modal fade" id="cadastro-expediente">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h2 class="modal-title">CADASTRO DE EXPEDIENTE</h2>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label>Título para expediente</label>
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <table class="table table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th>Dia</th>
+                                                                    <th class="text-center">Início</th>
+                                                                    <th class="text-center">Fim</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><input class="checkbox input-sm" type="checkbox"></td>
+                                                                    <td>Terça</td>
+                                                                    <td><input class="form-control input-sm text-center" type="time"></td>
+                                                                    <td><input class="form-control input-sm text-center" type="time"></td>                                                                        </tr>
+                                                                <tr>
+                                                                    <td><input class="checkbox input-sm" type="checkbox"></td>
+                                                                    <td>Quarta</td>
+                                                                    <td><input class="form-control input-sm text-center" type="time"></td>
+                                                                    <td><input class="form-control input-sm text-center" type="time"></td>                                                                        </tr>
+                                                                <tr>
+                                                                    <td><input class="checkbox input-sm" type="checkbox"></td>
+                                                                    <td>Quinta</td>
+                                                                    <td><input class="form-control input-sm text-center" type="time"></td>
+                                                                    <td><input class="form-control input-sm text-center" type="time"></td>                                                                        </tr>
+                                                                <tr>
+                                                                    <td><input class="checkbox input-sm" type="checkbox"></td>
+                                                                    <td>Sexta</td>
+                                                                    <td><input class="form-control input-sm text-center" type="time"></td>
+                                                                    <td><input class="form-control input-sm text-center" type="time"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><input class="checkbox input-sm" type="checkbox"></td>
+                                                                    <td>Sabado</td>
+                                                                    <td><input class="form-control input-sm text-center" type="time"></td>
+                                                                    <td><input class="form-control input-sm text-center" type="time"></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button class="btn btn-success center-block" type="submit">Salvar</button>
+                                                    </div>                                                        </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- CADASTRO EXPEDIENTE -->
+
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Título</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><button class="btn btn-xs btn-info" type="button" data-toggle="collapse" data-target="#InfCompExpediente"><span class="glyphicon glyphicon-info-sign"></span></button></td>
+                                            <td>Título</td>
+                                            <td><button class="btn btn-xs btn-info center-block" type="button">Editar</button></td>
+                                            <td><button class="btn btn-xs btn-danger pull-right" type="button">Excluir</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <!-- INFORMAÇÕES COMPLEMENTARES DO EXPEDIENTE -->
+                                <div class="collapse" id="InfCompExpediente">
+                                    <div class="well">
+                                        <h4>Informações do Expediente</h4>
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Dia</th>
+                                                    <th>Início</th>
+                                                    <th>Fim</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Terça</td>
+                                                    <td>08:30</td>
+                                                    <td>18:00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Quinta</td>
+                                                    <td>08:30</td>
+                                                    <td>18:10</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div><!-- INFORMAÇÕES COMPLEMENTARES DO EXPEDIENTE -->
+                            </div><!-- GERENCIAMENTO DOS EXPEDIENTES-->
+                        </div><!-- CONTEÚDO DOS GERENCIAMENTOS -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="navbar-inverse navbar-fixed-bottom">
+                <div class="container">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/salaodorusso/index">Início</a></li>
+                        <li><a href="/salaodorusso/dicas">Dicas</a></li>
+                        <li><a href="/salaodorusso/produtos">Produtos</a></li>
+                        <!--                        <li><a href="/salaodorusso/cadastro">Cadastro</a></li>-->
+                        <!--                        <li><a href="/salaodorusso/usuario">Perfil</a></li>-->
+                    </ul>
+                    <!--                    <ul class="nav navbar-nav navbar-left">
+                                            <li class="dropdown active">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ENTRAR / CRIAR CONTA <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <form>
+                                                        <li class="col-xs-12 form-group">
+                                                            <label>Nome</label>
+                                                            <input type="text" class="form-control" required>
+                                                        </li>
+                                                        <li class="col-xs-12 form-group">
+                                                            <label>Email</label>
+                                                            <input type="email" class="form-control" required>
+                                                        </li>
+                                                        <li class="col-xs-12 form-group">
+                                                            <label>Mensagem</label>
+                                                            <textarea rows="3" class="form-control" required></textarea>
+                                                        </li>
+                                                        <li class="col-xs-12 form-group">
+                                                            <button type="submit" class="btn btn-success center-block">Enviar</button>
+                                                        </li>
+                                                    </form>
+                                                </ul>
+                                            </li>
+                                        </ul>-->
+                </div>
+            </div>
+        </footer>
+
+        <!-- SCRIPTS GLOBAIS -->
         <script src="resources/js/commons.js"></script>
-        <script src="resources/frameworks/js/jquery.js"></script>
-        <script src="resources/frameworks/js/jquery-form.js"></script>
+        <script src="resources/js/jquery.js"></script>
+        <script src="resources/js/jquery-form.js"></script>
+        <!-- SCRIPTS DINÂMICOS -->
         <script src="resources/js/dica.js"></script>
         <script src="resources/js/produto.js"></script>
         <script src="resources/js/admin.js"></script>
+        <!-- SCRIPTS DO FRAMEWORK -->
+        <script src="resources/js/bootstrap.min.js"></script>
     </body>
 </html>

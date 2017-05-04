@@ -1,15 +1,27 @@
-<div>
-    <!-- IMAGEM AQUI -->
-    <img id="fotoProduto{id}" src="" alt="Imagem do produto" width="200" height="200"/>
-    <br>
-    <!-- NOME AQUI -->
-    <h2>{nome}</h2>
-    <br>
-    <!-- DESCRIÇÃO AQUI -->
-    <p>{descricao}</p>
-    <br>
-    <!-- VALOR AQUI -->
-    <h4>R$ <span>{preco}</span></h4>
-    <!-- CURTIDA AQUI -->
-    <button type="button">Curtir</button>
+<div class="col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <!-- IMAGEM AQUI -->
+            <div class="form-group">
+                <img id="fotoProduto{id}" src="" alt="Imagem do produto" class="img-responsive img-rounded"/>
+            </div>
+            <!-- NOME AQUI -->
+            <div class="form-group">
+                <h2 class="text-center">{nome}</h2>
+            </div>
+            <!-- DESCRIÇÃO AQUI -->
+            <div class="form-group">
+                <p class="text-justify">{descricao}</p>
+            </div>
+            <!-- VALOR AQUI -->
+            <div class="form-group">
+                <h4 class="text-muted text-center">R$ <span>{preco}</span></h4>
+            </div>
+            <!-- CURTIDA AQUI -->
+            <button type="button" class="btn btn-info btn-sm pull-right">
+                <i class="visible-xs glyphicon glyphicon-thumbs-up"></i> 
+                <span class="visible-sm visible-md visible-lg">Gostei</span>
+            </button>
+        </div>
+    </div>
 </div>

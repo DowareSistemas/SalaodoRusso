@@ -1,6 +1,6 @@
 <tr>
-    <td>{descricao}</td>
-    <td>R$ <span>{valor}</span></td>
-    <td><button onclick="carregarProdutoEdicao({id})" type="button">Editar</button></td>
-    <td><button onclick="excluirProduto({id})" type="button">Excluir</button></td>
+    <td>{nome}</td>
+    <td class="text-center">R$ <span>{valor}</span></td>
+    <td><button class="btn btn-xs btn-info center-block" onclick="carregarProdutoEdicao({id})" type="button" data-toggle="modal" data-target="#cadastro-produto">Editar</button></td>
+    <td><button class="btn btn-xs btn-danger pull-right" onclick="excluirProduto({id})" type="button">Excluir</button></td>
 </tr>

@@ -1,13 +1,22 @@
-<div>
+<div class="row">
     <!-- IMAGEM AQUI -->
-    <img id="fotoDica{id}" src="" alt="Imagem da dica" width="200" height="200"/>
-    <br>
+    <div class="form-group col-xs-12">
+        <img id="fotoDica{id}" src="" alt="Imagem da dica" class="img-responsive img-rounded"/>
+    </div>
     <!-- TÍTULO AQUI -->
-    <h2>{titulo}</h2>
-    <br>
+    <div class="form-group col-xs-12">
+        <h2 class="text-center">{titulo}</h2>
+    </div>
     <!-- DESCRIÇÃO AQUI -->
-    <p>{descricao}</p>
-    <br>
+    <div class="form-group col-xs-12">
+        <p class="text-justify">{descricao}</p>
+    </div>
     <!-- CURTIDA AQUI -->
-    <button type="button">Curtir</button>
+    <div class="col-xs-12">
+        <button type="button" class="btn btn-info btn-sm pull-right">
+            <i class="visible-xs glyphicon glyphicon-thumbs-up"></i> 
+            <span class="visible-sm visible-md visible-lg">Gostei</span>
+        </button>
+    </div>
 </div>
+<hr>

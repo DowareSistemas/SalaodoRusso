@@ -12,4 +12,10 @@ $(document).ready(function ()
     {
         salvarProduto();
     });
+    
+    $('.btnAdicionar').click(function ()
+    {
+        limparCamposCadastroDica();
+        limparCamposCadastroProduto();
+    });
 });

@@ -1,0 +1,17 @@
+body { 
+    padding-bottom: 70px; 
+}
+
+hr {
+    margin-top: 45px;
+    margin-bottom: 45px;
+    border: 0;
+    border-top: 2px solid #C2272C;
+}
+.navbar {
+    border-radius: 0px;
+}
+
+.btn, .img-rounded, .panel {
+    border-radius: 1px;
+}
