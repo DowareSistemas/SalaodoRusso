@@ -4,9 +4,353 @@
 
         <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Inicial</title>
+        <link rel="stylesheet" href="resources/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="resources/css/global.css"/>
+        <title>Salão do Russo</title>
     </head>
     <body>
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <!-- HEADER DA BARRA DE NAVEGAÇÃO -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/salaodorusso/index">SALÃO DO RUSSO</a>
+                    </div><!-- HEADER DA BARRA DE NAVEGAÇÃO -->
 
+                    <!-- COLLAPSE BARRA DE NAVEGAÇÃO -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li><a href="/salaodorusso/index">Início</a></li>
+                            <li><a href="/salaodorusso/dicas">Dicas</a></li>
+                            <li><a href="/salaodorusso/produtos">Produtos</a></li>
+                            <!--                        <li><a href="/salaodorusso/usuario">Usuário</a></li>-->
+                        </ul>
+                        <!--                    <ul class="nav navbar-nav navbar-right">
+                                                <li><a href="">Sair</a></li>
+                                                <li class="dropdown active">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ENTRAR / CRIAR CONTA <span class="caret"></span></a>
+                                                    <ul class="dropdown-menu">
+                                                        <form>
+                                                            <li class="col-xs-12 form-group">
+                                                                <label class="visible-sm visible-md visible-lg">Email</label>
+                                                                <input type="email" class="form-control" placeholder="Email" required>
+                                                            </li>
+                                                            <li class="col-xs-12 form-group">
+                                                                <label class="visible-sm visible-md visible-lg">Senha</label>
+                                                                <input type="password" class="form-control" placeholder="Senha" required>
+                                                            </li>
+                                                            <li class="col-xs-12 form-group">
+                                                                <button type="submit" class="btn btn-success center-block">Entrar</button>
+                                                            </li>
+                                                        </form>
+                                                    </ul>
+                                                </li>
+                                            </ul>-->
+                    </div><!-- COLLAPSE BARRA DE NAVEGAÇÃO -->
+                </div>
+            </nav>
+        </header>
+
+        <main>
+
+            <div class="container">
+
+                <!-- CARROCEL DE DICAS -->
+                <div class="form-group">
+                    <div id="dicasCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- INDICADORES -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#dicasCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#dicasCarousel" data-slide-to="1"></li>
+                        </ol>
+
+                        <!-- PACOTE DE IMAGENS -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="resources/img/39180932-hair-design.jpg" alt="Imagem da Dica" width="100%" height="400"/>
+                            </div>
+
+                            <div class="item">
+                                <img src="resources/img/9-Copy-1200x768.jpg" alt="Imagem da Dica" width="100%" height="400"/>
+                            </div>
+
+                        </div>
+
+                        <!-- CONTROLES DIREITA E ESQUERDA -->
+                        <a class="left carousel-control" href="#dicasCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#dicasCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- FORMULÁRIO PARA AGENDAMENTO -->
+                <div class="form-group">
+                    <a class="btn btn-danger btn-block center-block" href="#">AGENTE SEU HORÁRIO AQUI!</a> 
+                </div>
+
+                <!-- CARROCEL DE PRODUTOS -->
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="Carousel" class="carousel slide">
+
+                                <ol class="carousel-indicators">
+                                    <li data-target="#Carousel" data-slide-to="0" class="active"></li>
+                                    <li data-target="#Carousel" data-slide-to="1"></li>
+                                    <li data-target="#Carousel" data-slide-to="2"></li>
+                                </ol>
+
+                                <!-- PACOTE DE 12 MAIS CURTIDOS PRODUTOS -->
+                                <div class="carousel-inner">
+
+                                    <div class="item active">
+                                        <div class="row">
+                                            <div class="form-group col-md-3">
+                                                <img class="img-rounded" src="resources/img/9-Copy-1200x768.jpg" alt="Image" style="max-width:100%;">
+                                                <h4 class="text-center">Nome do Produto</h4>
+                                                <h3 class="text-center"><small>R$ <span>000,00</span></small></h3>
+                                                <button type="button" class="btn btn-info btn-sm center-block">
+                                                    <i class="visible-xs glyphicon glyphicon-thumbs-up"></i> 
+                                                    <span class="visible-sm visible-md visible-lg">Gostei</span>
+                                                </button>
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <img class="img-rounded" src="resources/img/9-Copy-1200x768.jpg" alt="Image" style="max-width:100%;">
+                                                <h4 class="text-center">Nome do Produto</h4>
+                                                <h3 class="text-center"><small>R$ <span>000,00</span></small></h3>
+                                                <button type="button" class="btn btn-info btn-sm center-block">
+                                                    <i class="visible-xs glyphicon glyphicon-thumbs-up"></i> 
+                                                    <span class="visible-sm visible-md visible-lg">Gostei</span>
+                                                </button>
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <img class="img-rounded" src="resources/img/9-Copy-1200x768.jpg" alt="Image" style="max-width:100%;">
+                                                <h4 class="text-center">Nome do Produto</h4>
+                                                <h3 class="text-center"><small>R$ <span>000,00</span></small></h3>
+                                                <button type="button" class="btn btn-info btn-sm center-block">
+                                                    <i class="visible-xs glyphicon glyphicon-thumbs-up"></i> 
+                                                    <span class="visible-sm visible-md visible-lg">Gostei</span>
+                                                </button>
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <img class="img-rounded" src="resources/img/9-Copy-1200x768.jpg" alt="Image" style="max-width:100%;">
+                                                <h4 class="text-center">Nome do Produto</h4>
+                                                <h3 class="text-center"><small>R$ <span>000,00</span></small></h3>
+                                                <button type="button" class="btn btn-info btn-sm center-block">
+                                                    <i class="visible-xs glyphicon glyphicon-thumbs-up"></i> 
+                                                    <span class="visible-sm visible-md visible-lg">Gostei</span>
+                                                </button>
+                                            </div>
+                                        </div><!--.row-->
+                                    </div><!--.item-->
+
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="form-group col-md-3">
+                                                <img class="img-rounded" src="resources/img/9-Copy-1200x768.jpg" alt="Image" style="max-width:100%;">
+                                                <h4 class="text-center">Nome do Produto</h4>
+                                                <h3 class="text-center"><small>R$ <span>000,00</span></small></h3>
+                                                <button type="button" class="btn btn-info btn-sm center-block">
+                                                    <i class="visible-xs glyphicon glyphicon-thumbs-up"></i> 
+                                                    <span class="visible-sm visible-md visible-lg">Gostei</span>
+                                                </button>
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <img class="img-rounded" src="resources/img/9-Copy-1200x768.jpg" alt="Image" style="max-width:100%;">
+                                                <h4 class="text-center">Nome do Produto</h4>
+                                                <h3 class="text-center"><small>R$ <span>000,00</span></small></h3>
+                                                <button type="button" class="btn btn-info btn-sm center-block">
+                                                    <i class="visible-xs glyphicon glyphicon-thumbs-up"></i> 
+                                                    <span class="visible-sm visible-md visible-lg">Gostei</span>
+                                                </button>
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <img class="img-rounded" src="resources/img/9-Copy-1200x768.jpg" alt="Image" style="max-width:100%;">
+                                                <h4 class="text-center">Nome do Produto</h4>
+                                                <h3 class="text-center"><small>R$ <span>000,00</span></small></h3>
+                                                <button type="button" class="btn btn-info btn-sm center-block">
+                                                    <i class="visible-xs glyphicon glyphicon-thumbs-up"></i> 
+                                                    <span class="visible-sm visible-md visible-lg">Gostei</span>
+                                                </button>
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <img class="img-rounded" src="resources/img/9-Copy-1200x768.jpg" alt="Image" style="max-width:100%;">
+                                                <h4 class="text-center">Nome do Produto</h4>
+                                                <h3 class="text-center"><small>R$ <span>000,00</span></small></h3>
+                                                <button type="button" class="btn btn-info btn-sm center-block">
+                                                    <i class="visible-xs glyphicon glyphicon-thumbs-up"></i> 
+                                                    <span class="visible-sm visible-md visible-lg">Gostei</span>
+                                                </button>
+                                            </div>
+                                        </div><!--.row-->
+                                    </div><!--.item-->
+
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="form-group col-md-3">
+                                                <img class="img-rounded" src="resources/img/9-Copy-1200x768.jpg" alt="Image" style="max-width:100%;">
+                                                <h4 class="text-center">Nome do Produto</h4>
+                                                <h3 class="text-center"><small>R$ <span>000,00</span></small></h3>
+                                                <button type="button" class="btn btn-info btn-sm center-block">
+                                                    <i class="visible-xs glyphicon glyphicon-thumbs-up"></i> 
+                                                    <span class="visible-sm visible-md visible-lg">Gostei</span>
+                                                </button>
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <img class="img-rounded" src="resources/img/9-Copy-1200x768.jpg" alt="Image" style="max-width:100%;">
+                                                <h4 class="text-center">Nome do Produto</h4>
+                                                <h3 class="text-center"><small>R$ <span>000,00</span></small></h3>
+                                                <button type="button" class="btn btn-info btn-sm center-block">
+                                                    <i class="visible-xs glyphicon glyphicon-thumbs-up"></i> 
+                                                    <span class="visible-sm visible-md visible-lg">Gostei</span>
+                                                </button>
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <img class="img-rounded" src="resources/img/9-Copy-1200x768.jpg" alt="Image" style="max-width:100%;">
+                                                <h4 class="text-center">Nome do Produto</h4>
+                                                <h3 class="text-center"><small>R$ <span>000,00</span></small></h3>
+                                                <button type="button" class="btn btn-info btn-sm center-block">
+                                                    <i class="visible-xs glyphicon glyphicon-thumbs-up"></i> 
+                                                    <span class="visible-sm visible-md visible-lg">Gostei</span>
+                                                </button>
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <img class="img-rounded" src="resources/img/9-Copy-1200x768.jpg" alt="Image" style="max-width:100%;">
+                                                <h4 class="text-center">Nome do Produto</h4>
+                                                <h3 class="text-center"><small>R$ <span>000,00</span></small></h3>
+                                                <button type="button" class="btn btn-info btn-sm center-block">
+                                                    <i class="visible-xs glyphicon glyphicon-thumbs-up"></i> 
+                                                    <span class="visible-sm visible-md visible-lg">Gostei</span>
+                                                </button>
+                                            </div>
+                                        </div><!--.row-->
+                                    </div><!--.item-->
+
+                                </div><!-- PACOTE DE PRODUTOS -->
+                                <a data-slide="prev" href="#Carousel" class="left carousel-control">
+                                    <i class="glyphicon glyphicon-chevron-left"></i>
+                                </a>
+                                <a data-slide="next" href="#Carousel" class="right carousel-control">
+                                    <i class="glyphicon glyphicon-chevron-right"></i>
+                                </a>
+                            </div><!-- CAROUSEL -->
+
+                        </div>
+                    </div>
+                </div><!-- CARROCEL DE PRODUTOS -->
+                
+                <!-- SOBRE O SALÃO -->
+                <div class="form-group">
+                    <!-- TÍTULO -->
+                    <h1 class="text-center text-danger">SALÃO DO RUSSO</h1>
+                    
+                    <!-- INTRODUÇÃO -->
+                    <p class="text-justify">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec maximus molestie nisi ornare mattis. Morbi ullamcorper
+                        lectus ac orci vulputate, placerat accumsan enim varius. 
+                        Phasellus ac nunc pharetra, semper est ut, ornare turpis. 
+                        Integer nec erat ligula. Sed venenatis augue augue, eget 
+                        lobortis neque imperdiet ultricies. Cras sed consectetur
+                        ligula. Donec tristique at magna vel efficitur. Nulla pharetra
+                        et urna eget sodales. Sed ut metus turpis. Duis placerat 
+                        lacus in bibendum sollicitudin. Etiam ultrices, quam vitae 
+                        lobortis varius, purus nulla vehicula massa, vel viverra 
+                        dui felis vitae odio.
+                    </p>
+                    
+                    <!-- CONTEÚDO -->
+                    <p class="text-justify">
+                        Vestibulum nulla ipsum, cursus non ligula eget, malesuada 
+                        molestie mi. Nulla sollicitudin erat ipsum, at vulputate
+                        libero vulputate vel. Sed a interdum est, ac maximus sem.
+                        In hac habitasse platea dictumst. Praesent posuere lectus
+                        et dui condimentum ornare. Vestibulum ante ipsum primis 
+                        in faucibus orci luctus et ultrices posuere cubilia Curae; 
+                        Ut a nisl quis justo cursus volutpat. Ut feugiat laoreet 
+                        scelerisque. Praesent risus quam, faucibus vel blandit accumsan, 
+                        imperdiet ut metus. Quisque euismod ac ante eget eleifend. 
+                        Sed elementum fermentum ante, et venenatis ex eleifend ut. 
+                        Nulla facilisi. Nullam mollis malesuada nunc, et vehicula 
+                        nisi. Maecenas feugiat dignissim quam vehicula convallis. 
+                        Curabitur consectetur id nisl vel ullamcorper.
+                    </p>
+                    
+                    <!-- CONCLUSÃO -->
+                    <p class="text-justify">
+                        Orci varius natoque penatibus et magnis dis parturient montes
+                        , nascetur ridiculus mus. Donec sodales venenatis congue.
+                        Suspendisse potenti. Proin urna dui, vulputate at rhoncus
+                        ut, vestibulum eu urna. Nam vestibulum tellus eget ornare
+                        pulvinar. Fusce eget est et dolor congue porta ac sit amet
+                        felis. In non tortor sapien. Quisque sit amet pellentesque 
+                        nulla, at venenatis enim. Aenean molestie sodales ipsum a 
+                        congue. Vestibulum massa libero, elementum vel nunc non, 
+                        aliquam hendrerit massa. Quisque iaculis finibus elit et 
+                        condimentum. Aliquam ac nulla ut erat interdum tempus sed
+                        et ligula. Sed neque leo, gravida non placerat eget, pharetra 
+                        ut quam.
+                    </p>
+                </div><!-- SOBRE O SALÃO -->
+            </div>
+        </main>
+
+        <footer>
+            <div class="navbar-inverse navbar-fixed-bottom">
+                <div class="container">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/salaodorusso/index">Início</a></li>
+                        <li><a href="/salaodorusso/dicas">Dicas</a></li>
+                        <li><a href="/salaodorusso/produtos">Produtos</a></li>
+                        <!--                        <li><a href="/salaodorusso/cadastro">Cadastro</a></li>-->
+                        <!--                        <li><a href="/salaodorusso/usuario">Perfil</a></li>-->
+                    </ul>
+                    <!--                    <ul class="nav navbar-nav navbar-left">
+                                            <li class="dropdown active">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ENTRAR / CRIAR CONTA <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <form>
+                                                        <li class="col-xs-12 form-group">
+                                                            <label>Nome</label>
+                                                            <input type="text" class="form-control" required>
+                                                        </li>
+                                                        <li class="col-xs-12 form-group">
+                                                            <label>Email</label>
+                                                            <input type="email" class="form-control" required>
+                                                        </li>
+                                                        <li class="col-xs-12 form-group">
+                                                            <label>Mensagem</label>
+                                                            <textarea rows="3" class="form-control" required></textarea>
+                                                        </li>
+                                                        <li class="col-xs-12 form-group">
+                                                            <button type="submit" class="btn btn-success center-block">Enviar</button>
+                                                        </li>
+                                                    </form>
+                                                </ul>
+                                            </li>
+                                        </ul>-->
+                </div>
+            </div>
+        </footer>
+
+        <!-- SCRIPTS GLOBAIS -->
+        <script src="resources/js/commons.js"></script>
+        <script src="resources/js/jquery.js"></script>
+        <script src="resources/js/jquery-form.js"></script>
+        <!-- SCRIPTS DINÂMICOS -->
+
+        <!-- SCRIPTS DO FRAMEWORK -->
+        <script src="resources/js/bootstrap.min.js"></script>
     </body>
 </html>
