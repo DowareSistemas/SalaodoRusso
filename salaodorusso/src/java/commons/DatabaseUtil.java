@@ -7,8 +7,6 @@ package commons;
 
 import br.com.persistor.generalClasses.CodeFirstDatabase;
 import br.com.persistor.generalClasses.CodeFirstTableDomain;
-import com.sun.corba.se.impl.orbutil.concurrent.CondVar;
-import dao.ConfiguracoesDao;
 import model.*;
 
 /**
@@ -20,7 +18,7 @@ public class DatabaseUtil
 
     public void createIfNotExists() throws Exception
     {
-        CodeFirstDatabase database = new CodeFirstDatabase(true);
+        CodeFirstDatabase database = new CodeFirstDatabase(false);
 
         database.addTableDomain(getConfiguracoes());
         database.addTableDomain(getCargo());
@@ -33,7 +31,7 @@ public class DatabaseUtil
         database.addTableDomain(getDica());
         database.addTableDomain(getProduto());
         
-        database.createTables(SessionProvider.getConfig());
+        database.createTables(SessionProvider.getConfigHomologacao());
     }
 
     /**

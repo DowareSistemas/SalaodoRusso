@@ -8,6 +8,7 @@ package model;
 import br.com.persistor.abstractClasses.Entity;
 import br.com.persistor.annotations.NamedQuery;
 import br.com.persistor.annotations.PrimaryKey;
+import java.io.Serializable;
 
 /**
  *
@@ -15,7 +16,7 @@ import br.com.persistor.annotations.PrimaryKey;
  */
 
 @NamedQuery(queryName = "createConfig", queryValue = "insert into configuracoes values (?, ?, ?)")
-public class Configuracoes extends Entity
+public class Configuracoes extends Entity implements Serializable
 {
 
     private String config;

@@ -25,10 +25,12 @@ public class ProdutoRepository extends RepositoryImpl<Produto> implements IProdu
     {
         Produto produtos = new Produto();
         createCriteria(produtos, RESULT_TYPE.MULTIPLE)
+                .beginPrecedence()
                 .add(Restrictions.like(FILTER_TYPE.WHERE, "descricao", search, MATCH_MODE.ANYWHERE))
                 .add(Restrictions.like(FILTER_TYPE.OR, "nome", search, MATCH_MODE.ANYWHERE))
+                .endPrecedence()
                 .execute();
         return produtos.toList();
     }
-    
+
 }

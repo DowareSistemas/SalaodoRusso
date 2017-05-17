@@ -8,12 +8,13 @@ package model;
 import br.com.persistor.abstractClasses.Entity;
 import br.com.persistor.annotations.PrimaryKey;
 import br.com.persistor.enums.INCREMENT;
+import java.io.Serializable;
 
 /**
  *
  * @author Marcos Vinícius
  */
-public class Produto extends Entity
+public class Produto extends Entity implements Serializable
 {
 
     private int id;

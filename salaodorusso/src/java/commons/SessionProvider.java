@@ -26,7 +26,7 @@ public class SessionProvider
             if (factory == null)
             {
                 factory = new SessionFactory();
-                return factory.getSession(getConfig());
+                return factory.getSession(getConfigHomologacao());
             }
 
             return factory.getSession();
@@ -38,7 +38,7 @@ public class SessionProvider
         }
     }
 
-    public static DBConfig getConfig()
+    public static DBConfig getConfigHomologacao()
     {
         DBConfig config = new DBConfig();
         config.setDb_type(DB_TYPE.MySQL);
@@ -48,12 +48,28 @@ public class SessionProvider
         config.setHost("localhost");
         config.setPort(3306);
         config.setPersistenceLogger(PersistenceLoggerImpl.class);
-       // config.setSlPersistenceContext(PersistenceContext.class);
         config.setMaxIdleTime(10);
         config.setMaxStatements(10);
         config.setMaxIdleTimeExcessConnections(10);
-        
+
         return config;
 
+    }
+
+    public static DBConfig getConfigProducao()
+    {
+        DBConfig config = new DBConfig();
+        config.setDb_type(DB_TYPE.MySQL);
+        config.setDatabase("doware_salaodorusso");
+        config.setUser("doware_AA4990");
+        config.setPassword("doware_AA4990");
+        config.setHost("localhost");
+        config.setPort(3306);
+        config.setPersistenceLogger(PersistenceLoggerImpl.class);
+        config.setMaxIdleTime(10);
+        config.setMaxStatements(10);
+        config.setMaxIdleTimeExcessConnections(10);
+
+        return config;
     }
 }

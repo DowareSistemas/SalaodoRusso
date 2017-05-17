@@ -12,12 +12,13 @@ import br.com.persistor.enums.INCREMENT;
 import br.com.persistor.enums.JOIN_TYPE;
 import br.com.persistor.enums.LOAD;
 import br.com.persistor.sessionManager.FieldHandled;
+import java.io.Serializable;
 
 /**
  *
  * @author Marcos Vinícius
  */
-public class Expediente extends Entity
+public class Expediente extends Entity implements Serializable
 {
 
     private int id;

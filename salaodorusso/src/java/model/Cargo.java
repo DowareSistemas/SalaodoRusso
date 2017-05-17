@@ -12,6 +12,7 @@ import br.com.persistor.enums.INCREMENT;
 import br.com.persistor.enums.JOIN_TYPE;
 import br.com.persistor.enums.LOAD;
 import br.com.persistor.sessionManager.FieldHandled;
+import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -20,7 +21,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  *
  * @author Marcos Vinícius
  */
-public class Cargo extends Entity
+public class Cargo extends Entity implements Serializable
 {
 
     private int id;

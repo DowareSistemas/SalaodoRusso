@@ -11,12 +11,13 @@ import br.com.persistor.annotations.PrimaryKey;
 import br.com.persistor.enums.INCREMENT;
 import br.com.persistor.enums.JOIN_TYPE;
 import br.com.persistor.enums.LOAD;
+import java.io.Serializable;
 
 /**
  *
  * @author Marcos Vinícius
  */
-public class FuncionarioServicos extends Entity
+public class FuncionarioServicos extends Entity implements Serializable
 {
     private int id;
     private int funcionario_id;

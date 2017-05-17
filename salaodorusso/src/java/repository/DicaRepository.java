@@ -26,8 +26,10 @@ public class DicaRepository extends RepositoryImpl<Dica> implements IDica
     {
         Dica dicas = new Dica();
         createCriteria(dicas, RESULT_TYPE.MULTIPLE)
+                .beginPrecedence()
                 .add(Restrictions.like(FILTER_TYPE.WHERE, "descricao", search, MATCH_MODE.ANYWHERE))
                 .add(Restrictions.like(FILTER_TYPE.OR, "titulo", search, MATCH_MODE.ANYWHERE))
+                .endPrecedence()
                 .addLimit(Limit.paginate(current_page, max_reccors))
                 .execute();
         return dicas.toList();
