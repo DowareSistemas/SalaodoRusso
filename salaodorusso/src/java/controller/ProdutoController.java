@@ -142,4 +142,14 @@ public class ProdutoController
             LogController.write("MudasController", "getImage", "foto: " + nomeFoto + " \n " + ex.getMessage());
         }
     }
+    
+    @RequestMapping(value = "/produto-top8", method = RequestMethod.POST, produces = Utility.DEFAULT_PRODUCES_VALUE)
+    public @ResponseBody
+    String top8()
+    {
+        ProdutoDao dao = new ProdutoDao(true);
+        List<Produto> list = dao.top8();
+        
+        return OperationResult.toJson(StatusRetorno.OPERACAO_OK, "", list);
+    }
 }

@@ -1,9 +1,5 @@
 $(document).ready(function ()
 {
-    listarProdutos();   
+    listarDicasIndex();
+    listarProdutosIndex();
 });
-
-function listarProdutos()
-{
-    
-}

@@ -55,4 +55,9 @@ public class ProdutoDao
     {
         db.commit(close);
     }
+
+    public List<Produto> top8()
+    {
+        return db.top8();
+    }
 }

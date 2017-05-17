@@ -152,4 +152,14 @@ public class DicaController
             LogController.write("MudasController", "getImage", "foto: " + nomeFoto + " \n " + ex.getMessage());
         }
     }
+    
+    @RequestMapping(value = "/dica-top3", method = RequestMethod.POST, produces = Utility.DEFAULT_PRODUCES_VALUE)
+    public @ResponseBody
+    String top3()
+    {
+        DicaDao dao = new DicaDao(true);
+        List<Dica> list = dao.top3();
+        
+        return OperationResult.toJson(StatusRetorno.OPERACAO_OK, "", list);
+    }
 }

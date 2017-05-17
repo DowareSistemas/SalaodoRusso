@@ -16,5 +16,7 @@ public interface IDica extends IRepository<Dica>
 {
 
     public List<Dica> search(String search, int current_page, int max_reccors);
+
+    public List<Dica> top3();
     
 }

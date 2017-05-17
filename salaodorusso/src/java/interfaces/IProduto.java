@@ -16,5 +16,7 @@ public interface IProduto extends IRepository<Produto>
 {
 
     public List<Produto> search(String search);
+
+    public List<Produto> top8();
     
 }

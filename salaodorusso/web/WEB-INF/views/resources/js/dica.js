@@ -120,9 +120,45 @@ function listarDicasPaginaListagem()
                     .replace(/{id}/g, dica.id)
                     .replace('{titulo}', dica.titulo)
                     .replace('{descricao}', dica.descricao));
-            
-            $('#fotoDica' + dica.id).attr('src', 
+
+            $('#fotoDica' + dica.id).attr('src',
                     '/salaodorusso/dica-getimage?image_name=' + dica.foto);
         });
+    });
+}
+
+function listarDicasIndex()
+{
+    var viewBaseItem = getViewBase('item-caroucel-dicas');
+    var viewBaseIndicador = getViewBase('indicador-caroucel-dicas');
+
+    var url = '/salaodorusso/dica-top3';
+    $.post(url, function (result)
+    {
+        var dicas = result.entity;
+        for (var i = 0; i < dicas.length; i++)
+        {
+            var dica = dicas[i];
+
+            $('#indicadores-caroucel-dicas').append(viewBaseIndicador
+                    .replace(/{id}/g, dica.id)
+                    .replace('{indice}', i));
+
+            $('#caroucel-dicas').append(viewBaseItem
+                    .replace(/{id}/g, dica.id));
+
+            if (dica.foto !== '')
+                $('#imgDicaCaroucel' + dica.id).attr('src',
+                        '/salaodorusso/dica-getimage?image_name=' + dica.foto);
+
+            if (i === 0)
+            {
+                $('#itemCarrocelDicas' + dica.id).attr('class',
+                        'item active');
+
+                $('#indicadorCaroucelDica' + dica.id).attr('class',
+                        'active');
+            }
+        }
     });
 }

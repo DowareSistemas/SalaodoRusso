@@ -8,6 +8,7 @@ package repository;
 import br.com.persistor.enums.FILTER_TYPE;
 import br.com.persistor.enums.MATCH_MODE;
 import br.com.persistor.enums.RESULT_TYPE;
+import br.com.persistor.generalClasses.Limit;
 import br.com.persistor.generalClasses.Restrictions;
 import interfaces.IProduto;
 import java.util.List;
@@ -19,7 +20,6 @@ import model.Produto;
  */
 public class ProdutoRepository extends RepositoryImpl<Produto> implements IProduto
 {
-
     @Override
     public List<Produto> search(String search)
     {
@@ -33,4 +33,13 @@ public class ProdutoRepository extends RepositoryImpl<Produto> implements IProdu
         return produtos.toList();
     }
 
+    @Override
+    public List<Produto> top8()
+    {
+        Produto produtos = new Produto();
+        createCriteria(produtos, RESULT_TYPE.MULTIPLE)
+                .addLimit(Limit.simpleLimit(8))
+                .execute();
+        return produtos.toList();
+    }
 }

@@ -65,21 +65,13 @@
                 <div class="form-group">
                     <div id="dicasCarousel" class="carousel slide" data-ride="carousel">
                         <!-- INDICADORES -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#dicasCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#dicasCarousel" data-slide-to="1"></li>
+                        <ol class="carousel-indicators" id="indicadores-caroucel-dicas">
+                            <!-- /componentes/indicador-caroucel-dicas.html -->
                         </ol>
 
                         <!-- PACOTE DE IMAGENS -->
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <img src="resources/img/39180932-hair-design.jpg" alt="Imagem da Dica" width="100%" height="400"/>
-                            </div>
-
-                            <div class="item">
-                                <img src="resources/img/9-Copy-1200x768.jpg" alt="Imagem da Dica" width="100%" height="400"/>
-                            </div>
-
+                        <div class="carousel-inner" id="caroucel-dicas">
+                                
                         </div>
 
                         <!-- CONTROLES DIREITA E ESQUERDA -->
@@ -93,78 +85,27 @@
                         </a>
                     </div>
                 </div>
+                <hr>
 
                 <!-- FORMULÁRIO PARA AGENDAMENTO -->
-                <div class="form-group">
-                    <a class="btn btn-danger btn-block center-block" href="#">AGENTE SEU HORÁRIO AQUI!</a> 
-                </div>
+                <!--                <div class="form-group">
+                                    <a id="agendamento" class="btn btn-danger btn-block center-block" href="">AGENTE SEU HORÁRIO AQUI!</a> 
+                                </div>
+                                <hr>-->
 
                 <!-- CARROCEL DE PRODUTOS -->
                 <div class="form-group">
+                    <h2 class="text-muted">Alguns produtos para você</h2>
                     <div class="row">
                         <div class="col-md-12">
                             <div id="Carousel" class="carousel slide">
 
-                                <ol class="carousel-indicators">
-                                    <li data-target="#Carousel" data-slide-to="0" class="active"></li>
-                                    <li data-target="#Carousel" data-slide-to="1"></li>
-                                    <li data-target="#Carousel" data-slide-to="2"></li>
+                                <ol class="carousel-indicators" id="indicadores-caroucel-produtos">
+     
                                 </ol>
 
-                                <!-- PACOTE DE 12 MAIS CURTIDOS PRODUTOS -->
-                                <div class="carousel-inner">
-
-                                    <div class="item active">
-                                        <div class="row">
-                                            <div class="form-group col-md-3">
-                                                <img class="img-rounded" src="resources/img/9-Copy-1200x768.jpg" alt="Image" style="max-width:100%;">
-                                                <h4 class="text-center">Nome do Produto</h4>
-                                                <h3 class="text-center"><small>R$ <span>000,00</span></small></h3>
-                                                <button type="button" class="btn btn-info btn-sm center-block">
-                                                    <i class="visible-xs glyphicon glyphicon-thumbs-up"></i> 
-                                                    <span class="visible-sm visible-md visible-lg">Gostei</span>
-                                                </button>
-                                            </div>
-                                        </div><!--.row-->
-                                    </div><!--.item-->
-
-                                    <div class="item">
-                                        <div class="row">
-                                            <div class="form-group col-md-3">
-                                                <img class="img-rounded" src="resources/img/9-Copy-1200x768.jpg" alt="Image" style="max-width:100%;">
-                                                <h4 class="text-center">Nome do Produto</h4>
-                                                <h3 class="text-center"><small>R$ <span>000,00</span></small></h3>
-                                                <button type="button" class="btn btn-info btn-sm center-block">
-                                                    <i class="visible-xs glyphicon glyphicon-thumbs-up"></i> 
-                                                    <span class="visible-sm visible-md visible-lg">Gostei</span>
-                                                </button>
-                                            </div>
-                                            
-                                            <div class="form-group col-md-3">
-                                                <img class="img-rounded" src="resources/img/9-Copy-1200x768.jpg" alt="Image" style="max-width:100%;">
-                                                <h4 class="text-center">Nome do Produto</h4>
-                                                <h3 class="text-center"><small>R$ <span>000,00</span></small></h3>
-                                                <button type="button" class="btn btn-info btn-sm center-block">
-                                                    <i class="visible-xs glyphicon glyphicon-thumbs-up"></i> 
-                                                    <span class="visible-sm visible-md visible-lg">Gostei</span>
-                                                </button>
-                                            </div>
-                                        </div><!--.row-->
-                                    </div><!--.item-->
-
-                                    <div class="item">
-                                        <div class="row">
-                                            <div class="form-group col-md-3">
-                                                <img class="img-rounded" src="resources/img/9-Copy-1200x768.jpg" alt="Image" style="max-width:100%;">
-                                                <h4 class="text-center">Nome do Produto</h4>
-                                                <h3 class="text-center"><small>R$ <span>000,00</span></small></h3>
-                                                <button type="button" class="btn btn-info btn-sm center-block">
-                                                    <i class="visible-xs glyphicon glyphicon-thumbs-up"></i> 
-                                                    <span class="visible-sm visible-md visible-lg">Gostei</span>
-                                                </button>
-                                            </div>
-                                        </div><!--.row-->
-                                    </div><!--.item-->
+                                <!-- PACOTE DE 8 PRODUTOS MAIS CURTIDOS -->
+                                <div class="carousel-inner" id="caroucel-produtos">
 
                                 </div><!-- PACOTE DE PRODUTOS -->
                                 <a data-slide="prev" href="#Carousel" class="left carousel-control">
@@ -178,59 +119,40 @@
                         </div>
                     </div>
                 </div><!-- CARROCEL DE PRODUTOS -->
+                <hr>
 
                 <!-- SOBRE O SALÃO -->
                 <div class="form-group">
                     <!-- TÍTULO -->
-                    <h1 class="text-center text-danger">SALÃO DO RUSSO</h1>
+                    <h1 class="text-center" style="color: #C2272C;"><strong>O SALÃO DO RUSSO</strong></h1>
 
                     <!-- INTRODUÇÃO -->
-                    <p class="text-justify">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Donec maximus molestie nisi ornare mattis. Morbi ullamcorper
-                        lectus ac orci vulputate, placerat accumsan enim varius. 
-                        Phasellus ac nunc pharetra, semper est ut, ornare turpis. 
-                        Integer nec erat ligula. Sed venenatis augue augue, eget 
-                        lobortis neque imperdiet ultricies. Cras sed consectetur
-                        ligula. Donec tristique at magna vel efficitur. Nulla pharetra
-                        et urna eget sodales. Sed ut metus turpis. Duis placerat 
-                        lacus in bibendum sollicitudin. Etiam ultrices, quam vitae 
-                        lobortis varius, purus nulla vehicula massa, vel viverra 
-                        dui felis vitae odio.
+                    <p class="text-muted text-center">
+                            Ser nosso cliente, é garantir cortes modernos e bem feitos, diversos procedimentos químicos com responsabilidade e bom gosto, atendimento personalizado para noivas e debutantes, serviços de barbearia, atendimento de manicure, pedicure, blindagem, alongamento de unhas, design de sobrancelhas, venda de produtos profissionais para clientes e bijuterias de alta elegância e bom gosto.
                     </p>
 
                     <!-- CONTEÚDO -->
-                    <p class="text-justify">
-                        Vestibulum nulla ipsum, cursus non ligula eget, malesuada 
-                        molestie mi. Nulla sollicitudin erat ipsum, at vulputate
-                        libero vulputate vel. Sed a interdum est, ac maximus sem.
-                        In hac habitasse platea dictumst. Praesent posuere lectus
-                        et dui condimentum ornare. Vestibulum ante ipsum primis 
-                        in faucibus orci luctus et ultrices posuere cubilia Curae; 
-                        Ut a nisl quis justo cursus volutpat. Ut feugiat laoreet 
-                        scelerisque. Praesent risus quam, faucibus vel blandit accumsan, 
-                        imperdiet ut metus. Quisque euismod ac ante eget eleifend. 
-                        Sed elementum fermentum ante, et venenatis ex eleifend ut. 
-                        Nulla facilisi. Nullam mollis malesuada nunc, et vehicula 
-                        nisi. Maecenas feugiat dignissim quam vehicula convallis. 
-                        Curabitur consectetur id nisl vel ullamcorper.
+                    <p class="text-muted text-center">
+                        Procuramos sempre atender nossos clientes em um clima confortável e amigável. Oferecemos profissionais qualificados, que fidelizaram nossos clientes ao longo dos anos. Levamos ao nossos clientes serviços variados, com garantia de qualidade e atendimento unissex.
                     </p>
 
                     <!-- CONCLUSÃO -->
-                    <p class="text-justify">
-                        Orci varius natoque penatibus et magnis dis parturient montes
-                        , nascetur ridiculus mus. Donec sodales venenatis congue.
-                        Suspendisse potenti. Proin urna dui, vulputate at rhoncus
-                        ut, vestibulum eu urna. Nam vestibulum tellus eget ornare
-                        pulvinar. Fusce eget est et dolor congue porta ac sit amet
-                        felis. In non tortor sapien. Quisque sit amet pellentesque 
-                        nulla, at venenatis enim. Aenean molestie sodales ipsum a 
-                        congue. Vestibulum massa libero, elementum vel nunc non, 
-                        aliquam hendrerit massa. Quisque iaculis finibus elit et 
-                        condimentum. Aliquam ac nulla ut erat interdum tempus sed
-                        et ligula. Sed neque leo, gravida non placerat eget, pharetra 
-                        ut quam.
+                    <p class="text-muted text-center">
+                        Quando olhamos nosso passado vemos uma história de trabalho duro e de perseverança, até chegarmos ao que somos hoje, um salão com mais de 40 anos de tradição no ramo da beleza. Agradecemos a todos os nossos clientes e colaboradores a confiança em nosso trabalho, porque a sua satisfação é o nosso sucesso.
                     </p>
+                    <hr>
+                    
+                    <div class="text-center">
+                        <h3 class="text-muted">Endereço</h3>
+                        <h3>
+                            <small>
+                                <p>Telefone: (24) 3346 - 2727</p>
+                            </small>
+                            <small>
+                                <p>Av. Retiro, 2690 - Volta Redonda</p>
+                            </small>
+                        </h3>
+                    </div>
                 </div><!-- SOBRE O SALÃO -->
             </div>
         </main>
@@ -279,6 +201,8 @@
         <script src="resources/js/bootstrap.min.js"></script>
 
         <script src="resources/js/commons.js"></script>
+        <script src="resources/js/dica.js"></script>
+        <script src="resources/js/produto.js"></script>
         <script src="resources/js/index.js"></script>
     </body>
 </html>

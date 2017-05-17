@@ -35,4 +35,14 @@ public class DicaRepository extends RepositoryImpl<Dica> implements IDica
         return dicas.toList();
     }
 
+    @Override
+    public List<Dica> top3()
+    {
+        Dica dicas = new Dica();
+        createCriteria(dicas, RESULT_TYPE.MULTIPLE)
+                .addLimit(Limit.simpleLimit(3))
+                .execute();
+        return dicas.toList();
+    }
+
 }

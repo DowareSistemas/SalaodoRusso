@@ -56,4 +56,9 @@ public class DicaDao
     {
         return db.search(search, current_page, max_reccors);
     }
+
+    public List<Dica> top3()
+    {
+        return db.top3();
+    }
 }

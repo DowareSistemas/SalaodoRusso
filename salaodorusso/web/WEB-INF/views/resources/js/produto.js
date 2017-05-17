@@ -118,3 +118,54 @@ function listarProdutosPaginaListagem()
         });
     });
 }
+
+function listarProdutosIndex()
+{
+    var divItemBase = "<div class=\"item\" id=\"itemBloco{bloco}\"> </div>";
+    var viewBase = getViewBase('item-caroucel-produtos');
+    var viewIndicadorBase = getViewBase('indicador-caroucel-produtos');
+
+    var url = '/salaodorusso/produto-top8';
+    $.post(url, function (result)
+    {
+        var blocoAtual = 1;
+        var produtos = result.entity;
+        for (var i = 0; i < produtos.length; i++)
+        {
+            var produto = produtos[i];
+            if (i === 0)
+            {
+                $('#indicadores-caroucel-produtos').append(viewIndicadorBase
+                        .replace('{indice}', 0));
+
+                $('#caroucel-produtos').append(divItemBase
+                        .replace('{bloco}', 1));
+
+                blocoAtual = 1;
+
+                $('#itemBloco1').attr('class',
+                        'item active');
+            }
+
+            if (i === 4)
+            {
+                $('#indicadores-caroucel-produtos').append(viewIndicadorBase
+                        .replace('{indice}', 1)
+                        .replace('active', ''));
+
+                $('#caroucel-produtos').append(divItemBase
+                        .replace('{bloco}', 2));
+                blocoAtual = 2;
+            }
+
+            $('#itemBloco' + blocoAtual).append(viewBase
+                    .replace(/{id}/g, produto.id)
+                    .replace('{nome}', produto.nome)
+                    .replace('{preco}', parseFloat(produto.valor.toString()).toFixed(2)));
+
+            if (produto.foto !== '')
+                $('#imgProduto' + produto.id).attr('src',
+                        '/salaodorusso/produto-getimage?image_name=' + produto.foto);
+        }
+    });
+}
