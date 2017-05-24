@@ -33,6 +33,20 @@ hr {
     opacity: .5;
 }
 
+#caroucel-dicas {
+    height: 600px;
+}
+
+#caroucel-produtos {
+    height: 400px;
+}
+
+.img-produtos {
+    height: 255px;
+    
+}
+
+
 /*.carousel {
     margin-bottom: 0;
     padding: 0 40px 30px 40px;
