@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="resources/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="resources/css/global.css"/>
-        <title>Administrador</title>
+        <title>Administrador - Salão do Russo</title>
     </head>
 
     <body>
@@ -30,29 +30,29 @@
                             <li><a href="/salaodorusso/index">Início</a></li>
                             <li><a href="/salaodorusso/dicas">Dicas</a></li>
                             <li><a href="/salaodorusso/produtos">Produtos</a></li>
-                            <!--                        <li><a href="/salaodorusso/usuario">Usuário</a></li>-->
+                            <li><a href="/salaodorusso/usuario">Usuário</a></li>
                         </ul>
-                        <!--                    <ul class="nav navbar-nav navbar-right">
-                                                <li><a href="">Sair</a></li>
-                                                <li class="dropdown active">
-                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ENTRAR / CRIAR CONTA <span class="caret"></span></a>
-                                                    <ul class="dropdown-menu">
-                                                        <form>
-                                                            <li class="col-xs-12 form-group">
-                                                                <label class="visible-sm visible-md visible-lg">Email</label>
-                                                                <input type="email" class="form-control" placeholder="Email" required>
-                                                            </li>
-                                                            <li class="col-xs-12 form-group">
-                                                                <label class="visible-sm visible-md visible-lg">Senha</label>
-                                                                <input type="password" class="form-control" placeholder="Senha" required>
-                                                            </li>
-                                                            <li class="col-xs-12 form-group">
-                                                                <button type="submit" class="btn btn-success center-block">Entrar</button>
-                                                            </li>
-                                                        </form>
-                                                    </ul>
-                                                </li>
-                                            </ul>-->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="">Sair</a></li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ENTRAR / CRIAR CONTA <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <form>
+                                        <li class="col-xs-12 form-group">
+                                            <label class="visible-sm visible-md visible-lg">Email</label>
+                                            <input type="email" class="form-control" placeholder="Email" required>
+                                        </li>
+                                        <li class="col-xs-12 form-group">
+                                            <label class="visible-sm visible-md visible-lg">Senha</label>
+                                            <input type="password" class="form-control" placeholder="Senha" required>
+                                        </li>
+                                        <li class="col-xs-12 form-group">
+                                            <button type="submit" class="btn btn-success center-block">Entrar</button>
+                                        </li>
+                                    </form>
+                                </ul>
+                            </li>
+                        </ul>
                     </div><!-- COLLAPSE BARRA DE NAVEGAÇÃO -->
                 </div>
             </nav>
@@ -65,12 +65,13 @@
 
                         <!-- NAVEGAÇÃO DOS GERENCIAMENTOS -->
                         <ul class="nav nav-pills nav-stacked">
-                            <li class="active"><a data-toggle="tab" href="#dica">DICA</a></li>
+                            <li class="active"><a data-toggle="tab" href="#agendamento">AGENDAMENTO</a></li>
+                            <li><a data-toggle="tab" href="#dica">DICA</a></li>
                             <li><a data-toggle="tab" href="#produto">PRODUTO</a></li>
-                            <!--                            <li><a data-toggle="tab" href="#funcionarios">FUNCIONÁRIO</a></li>
-                                                        <li><a data-toggle="tab" href="#servicos">SERVIÇOS</a></li>
-                                                        <li><a data-toggle="tab" href="#cargos">CARGOS</a></li>
-                                                        <li><a data-toggle="tab" href="#expedientes">EXPEDIENTES</a></li>-->
+                            <li><a data-toggle="tab" href="#funcionarios">FUNCIONÁRIO</a></li>
+                            <li><a data-toggle="tab" href="#servicos">SERVIÇOS</a></li>
+                            <li><a data-toggle="tab" href="#cargos">CARGOS</a></li>
+                            <li><a data-toggle="tab" href="#expedientes">EXPEDIENTES</a></li>
                         </ul><!-- NAVEGAÇÃO DOS GERENCIAMENTOS -->
                     </div>
                     <div class="col-xs-12 col-sm-9">
@@ -78,8 +79,75 @@
                         <!-- CONTEÚDO DOS GERENCIAMENTOS -->
                         <div class="tab-content">
 
+                            <!-- GERENCIAMENTO DOS AGENDAMENTOS -->
+                            <div id="agendamento" class="tab-pane fade in active">
+                                <h2>GERENCIAMENTO DOS AGENDAMENTOS</h2>
+
+                                <!-- CADASTRO DOS AGENDAMENTOS -->
+                                <button type="button" class="btn btn-success pull-right btnAdicionar" data-toggle="modal" data-target="#cadastro-agendamento">
+                                    <i class="glyphicon glyphicon-plus"> <span class="visible-sm visible-md visible-lg">ADICIONAR</span></i>
+                                </button>
+
+                                <div class="modal fade" id="cadastro-agendamento">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h2 class="modal-title">CADASTRO DO AGENDAMENTO</h2>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <div class="form-group">
+                                                    <button id="btnSalvarDica" class="btn btn-success center-block" type="button">Salvar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- CADASTRO DOS AGENDAMENTOS -->
+
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <td class="text-center">
+                                                <h3><strong>Hoje</strong></h3>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-center">
+                                                Horário
+                                            </th>
+                                            <th class="text-center">
+                                                Serviço
+                                            </th>
+                                            <th class="text-center">
+                                                Funcionário
+                                            </th>
+                                            <th class="text-center">
+                                                Mais Informações
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                13:20
+                                            </td>
+                                            <td class="text-center">
+                                                Corte
+                                            </td>
+                                            <td class="text-center">
+                                                Fátima
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-info btn-sm center-block" type="button">Visualizar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div><!-- GERENCIAMENTO DOS AGENDAMENTOS -->
+
                             <!-- GERENCIAMENTO DAS DICAS-->
-                            <div id="dica" class="tab-pane fade in active">
+                            <div id="dica" class="tab-pane fade">
                                 <h2>GERENCIAMENTO DE DICAS</h2>
 
                                 <!-- CADASTRO DICA -->
